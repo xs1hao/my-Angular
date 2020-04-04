@@ -31,4 +31,5 @@ devDependencies：开发时的依赖。里面的模块是开发时用的，发�
 ng9里面不生成测试文件用这个
 
 # 安装cnpm
+
 npm install -g cnpm --registry=https://registry.npm.taobao.org
