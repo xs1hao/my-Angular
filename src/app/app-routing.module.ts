@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'rxjs',
     loadChildren: () => import('./rxjs/rxjs.module').then(mod => mod.RxjsModule)
   },
+  {
+    path: 'counter',
+    loadChildren: () => import('./counter/counter.module').then(mod => mod.CounterModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];
