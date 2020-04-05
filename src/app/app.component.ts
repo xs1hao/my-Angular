@@ -11,7 +11,7 @@ export class AppComponent {
   constructor() {
     this.getTime();
   }
-
+  id = 19047;
   private getTime = () => {
     var date = new Date();
     let Y = date.getFullYear() + '-';

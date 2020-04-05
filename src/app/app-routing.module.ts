@@ -19,10 +19,14 @@ const routes: Routes = [
     path: 'counter',
     loadChildren: () => import('./counter/counter.module').then(mod => mod.CounterModule)
   },
+  {
+    path: 'basic/:id',
+    loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
 ];
-
+// forRoot() 方法会提供路由所需的服务提供商和指令，还会基于浏览器的当前 URL 执行首次导航。
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

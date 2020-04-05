@@ -34,3 +34,6 @@ ng9里面不生成测试文件用这个
 # 安装cnpm
 
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+
+# 模拟服务器
+npm install angular-in-memory-web-api --save
