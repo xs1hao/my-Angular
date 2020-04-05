@@ -3,11 +3,21 @@
     <button type="button" class="btn btn-primary">
         Single Button
     </button>
-    <app-child></app-child>
+    <br>
+    <em class="red-f">{{str}}</em>
+
+    <div class="input">
+        <input type="text" class="input" [(ngModel)]="objdata.name" />
+    </div>
+    
+    <app-child [(child)]="str"></app-child>
+
     <app-button [item]="str" [data]="objdata" (con)="confn($event)" #btn></app-button>
 
     <div style="border: 1px solid;">
-        <p>使用公共组件</p>
-        <app-zorro></app-zorro>
+        <p (click)="toggle()" class="cursor-point">使用公共组件（轮播图）,配置了全局样式<em class="red-f">点我一下看轮播图</em></p>
+        <ng-container *ngIf="show">
+            <app-zorro></app-zorro>
+        </ng-container>
     </div>
 </div>

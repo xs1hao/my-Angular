@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../components/zorro/button/button.component';
+import { Data, Datas } from './datatype';
 
 @Component({
   selector: 'app-bootstrap-tesst',
@@ -7,22 +8,25 @@ import { ButtonComponent } from '../components/zorro/button/button.component';
   styleUrls: ['./bootstrap-tesst.component.less']
 })
 export class BootstrapTesstComponent implements OnInit {
-  objdata:any;
+  objdata:Data;//自己定义了一个类；
   str: string;
+  d = [new Datas('sss',2)];
+  show:boolean;
+  parent:string;
 
   @ViewChild('btn', { static: true }) private domLabelChild: ButtonComponent;
 
-  constructor() { }
+  constructor() { 
+    this.show = false;
+    this.parent = 'Hello world~!'
+  }
 
   ngOnInit(): void {
     this.str = "德玛西亚啦啦啦";
-    this.objdata = {
-      name:'sq',
-      id:125
-    }
+    this.objdata = { name:'sq',id:125 }
 
     this.domLabelChild.methods('使用@viewchild测试第一个值，在父组件中，调用子组件的方法');
-    
+    console.log('this.d:',this.d[0]);
   }
  
   confn(data) {
@@ -30,5 +34,9 @@ export class BootstrapTesstComponent implements OnInit {
     this.domLabelChild.method2();
     
     console.log('子组件给我发送了一个data:',data);
+  }
+
+  toggle() {
+    this.show = !this.show;
   }
 }
