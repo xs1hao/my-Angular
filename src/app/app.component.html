@@ -4,7 +4,7 @@
     <span>2020年3月22日00:24:36</span>
   </p>
   <div class="current_time">
-    当前时间：
+    当前(页面刷新)时间：
     <span>
       {{current_time}}
     </span>
@@ -12,9 +12,9 @@
   <!-- 路由切换 -->
   <div class="router-group">
     <span class="router" [routerLink]="['/home']">首页</span>
-    <span class="router" [routerLink]="['/style']">样式组件</span>
+    <span class="router" [routerLink]="['/style']">父子组件交互</span>
     <span class="router" [routerLink]="['/rxjs']">Rxjs-组件</span>
-    <span class="router" [routerLink]="['/counter']">Rxjs-组件</span>
+    <span class="router" [routerLink]="['/counter']">Ngrx-组件</span>
   </div>
   <div class="router-content">
     <router-outlet></router-outlet>
