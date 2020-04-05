@@ -1,10 +1,9 @@
-<div class="button">
+<div class="button" #button>
     <h4>我在button组件中~~~</h4>
-    <button nz-button nzType="default">Default</button>
-    <p>
-        button works!
-    </p>
-    <span>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet earum non placeat, maxime temporibus minima dolor voluptates, ea nulla pariatur atque cupiditate veritatis expedita vel esse ratione dicta possimus eos.
-    </span>    
+    <p>{{item}}</p>
+    <h3>我来自父组件：{{data.name}}</h3>
+    <button nz-button nzType="default" (click)="click()">给父组件发送</button>
+    <div class="input">
+        <input type="text" #myInput placeholder="请输入....">
+    </div>  
 </div>
