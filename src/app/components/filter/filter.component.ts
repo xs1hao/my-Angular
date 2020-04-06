@@ -19,6 +19,9 @@ export class FilterComponent implements OnInit {
   filterListClick(event) {
     event.stopPropagation();
     this.showFilterList.emit();
+    if(this.filter_list_show){
+      this.shutFilterList.emit();
+    }
   }
 
   closeFilterList(event){
