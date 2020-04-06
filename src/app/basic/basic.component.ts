@@ -50,8 +50,11 @@ export class BasicAngularComponent implements OnInit {
 
   // 使用了rxjs的方式，通过服务获取数据；
   getData () :void {
-    this.dataService.getData()
+    // this.dataService.getData()
+    this.dataService.httpGetHeroes()// 使用虚拟服务器获取数据
     .subscribe(res => this.mockData = res);
   }
+
+
 
 }
