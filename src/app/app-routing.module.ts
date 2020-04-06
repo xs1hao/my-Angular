@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
     path: 'home',
@@ -22,6 +21,10 @@ const routes: Routes = [
   {
     path: 'basic/:id',
     loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
+  },
+  {
+    path: 'workdemo',
+    loadChildren: () => import('./workdemo/workdemo.module').then(mod => mod.WorkdemoModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }

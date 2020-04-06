@@ -1,10 +1,12 @@
-import { NgModule } from "@angular/core";
+import { NgModule,CUSTOM_ELEMENTS_SCHEMA  } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { ZorroComponent } from './zorro/carousle/zorro.component';
 import { TestComponent } from './test/test.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ButtonComponent } from './zorro/button/button.component';
 import { FormsModule } from '@angular/forms';
+import { FilterComponent } from './filter/filter.component';
+import { FilterModule } from './filter/filter.module';
 
 @NgModule({
     declarations:[
@@ -15,12 +17,14 @@ import { FormsModule } from '@angular/forms';
     imports:[
         CommonModule,
         FormsModule,
-        NgZorroAntdModule 
+        NgZorroAntdModule,
+        FilterModule 
     ],
     exports:[
         ZorroComponent,
         TestComponent,
-        ButtonComponent
+        ButtonComponent,
+        FilterModule
     ]
 })
 export class UiComponentsModule {}

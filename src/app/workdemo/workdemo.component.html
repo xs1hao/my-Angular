@@ -1,0 +1,17 @@
+
+<div class="workitem scrollbar"
+    onClickOutSide
+    [bindFlag]="filter_list_show"
+    (onClickOutSide)="onClickOutSide()">
+    <!-- 筛选 -->
+    <div class="filter">
+        <app-filter class="filter_frame" [filter_list_show]="filter_list_show" (shutFilterList)="closeFilterList()" (showFilterList)="showInputList()"></app-filter>
+        <div class="other_option">
+            <span>这个里是其他的操作....</span>
+        </div>
+    </div>
+    <!-- 看板 -->
+    <div class="workitem_kanban" >
+        <h4>这里是看板内容...</h4>
+    </div>
+</div>

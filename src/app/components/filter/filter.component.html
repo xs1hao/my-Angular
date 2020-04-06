@@ -1,0 +1,7 @@
+<div class="filter_wrap" (click)="filterListClick($event)">
+    <input class="input_frame" #filter_input type="text" />
+    <div *ngIf="filter_list_show" class="filter_list">
+        <p>筛选项</p>
+        <button (click)="closeFilterList($event)"> 关闭筛选列表 </button>
+    </div>
+</div>

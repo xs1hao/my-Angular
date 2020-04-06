@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, OnChanges, SimpleChange } from '@angular/core';
+import { 
+  Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild, 
+  OnChanges, SimpleChange, SimpleChanges, DoCheck 
+} from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, pluck, combineAll } from 'rxjs/operators';
 
@@ -7,13 +10,14 @@ import { debounceTime, distinctUntilChanged, pluck, combineAll } from 'rxjs/oper
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.less']
 })
-export class ButtonComponent implements OnInit, OnChanges {
+export class ButtonComponent implements OnInit, OnChanges, DoCheck {
 
-  @Input() item:String;
-  @Input() data;
+  @Input() item: string;
+  @Input() data:{name:string};
   @Output() con = new EventEmitter<any>();
 
   changeLog: string[] = [];
+  oldHeroName:string = '';
 
   @ViewChild('button', { static: true }) private domLabelChild: ElementRef;
   @ViewChild('myInput', { static: true }) private nzInput: ElementRef;
@@ -25,22 +29,29 @@ export class ButtonComponent implements OnInit, OnChanges {
     console.log('this.data:',this.data);
   }
 
-  //ngOnChanges 方法貌似也只是在组件第一次加载的时候触发了；这里监听了所有 @input 输入属性
-  ngOnChanges(changes:{[propkey:string]:SimpleChange}){//当使用string去索引时会得到一个 SimpleChange 类型的返回值
-    let log: string[] = [];
-    // debugger;
+  //ngOnChanges 方法貌似也只是在组件第一次加载的时候触发了；这里监听了所有 @input 输入属性;
+  //当使用string去索引时会得到一个 SimpleChange 类型的返回值;
+  // 修改姓名属性 {name:sting}，控制台中没有新的消息被打印，这是因为用户只是改变了可变对象data的属性，data对象自身的引用是没有改变的，所以ngOnChanges没有被调用，但是在子组件中的值仍然改变，这是由于angular的变更检测机制捕获了组件中每一个对象的属性变化
+
+  ngOnChanges(changes: SimpleChanges) {
     for (let propName in changes) {
-      let changedProp = changes[propName];
-      let to = JSON.stringify(changedProp.currentValue);
-      if (changedProp.isFirstChange()) {
-        log.push(`Initial value of ${propName} set to ${to}`);
-      } else {
-        let from = JSON.stringify(changedProp.previousValue);
-        log.push(`${propName} changed from ${from} to ${to}`);
-      }
+      // debugger;
+      let chng = changes[propName];
+      let cur  = JSON.stringify(chng.currentValue);
+      let prev = JSON.stringify(chng.previousValue);
+      this.changeLog = [];
+      this.changeLog.push(`onChanges: From "${prev}" to "${cur}"`);
+      console.log('this.changeLog:',this.changeLog);
     }
-    this.changeLog.push(log.join(', '));
-    console.log('this.changeLog:',this.changeLog);
+  }
+
+  ngDoCheck() {
+    if (this.data.name !== this.oldHeroName) {
+      this.changeLog = [];
+      this.changeLog.push(`DoCheck: From "${this.data.name}" to "${this.oldHeroName}"`);
+      this.oldHeroName = this.data.name;
+      console.log('changeLog in Docheck:',this.changeLog);
+    }
   }
 
   ngAfterViewInit(): void {
@@ -49,7 +60,6 @@ export class ButtonComponent implements OnInit, OnChanges {
      * */ 
     console.log(this.domLabelChild.nativeElement);
     console.log(this.nzInput.nativeElement);//获取的是DOM 节点  <input _ngcontent-bso-c128="" type="text" placeholder="请输入....">
-
 
     // 使用viewchild 获取input输入内容.... 
     // pluck 选择属性来发出

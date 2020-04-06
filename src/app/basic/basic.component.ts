@@ -16,6 +16,9 @@ export class BasicAngularComponent implements OnInit {
   mockData;
   checkoutForm;
 
+  basicObj;
+  inputValues:string = '';
+
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,
@@ -34,10 +37,20 @@ export class BasicAngularComponent implements OnInit {
 
     //获取路由参数方式；
     const id = this.route.snapshot.paramMap.get('id');
-    console.log('id:',id);
-
+    console.log('id:',id);//19047
     console.log('this.location:',this.location);
-    
+  }
+
+  // input框输入属性 
+  onKey(value:string,eve:KeyboardEvent) {
+    this.inputValues = value;
+    // console.log('eve:',eve);
+    if(value == "" && eve.keyCode == 8){
+      alert('我使用了删除键，删除完了内容~~~')
+    }
+  }
+  onEnter(value:string) {
+    console.log('value:',value);
   }
 
   toggleStyle(){
