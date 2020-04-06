@@ -3,6 +3,14 @@
     onClickOutSide
     [bindFlag]="filter_list_show"
     (onClickOutSide)="onClickOutSide()">
+
+    <!-- 测试 -->
+    <div *ngIf="!(listShow$ | async)">
+        <span class="red-f">父组件中</span>
+        拿到的 listShow$ 初始值是一个false；
+        <p>通过 *ngIf="!(listShow$ | async)" 展示了这一段文字</p>
+    </div>
+
     <!-- 筛选 -->
     <div class="filter">
         <app-filter class="filter_frame" [filter_list_show]="filter_list_show" (shutFilterList)="closeFilterList()" (showFilterList)="showInputList()"></app-filter>

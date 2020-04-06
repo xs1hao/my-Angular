@@ -1,10 +1,14 @@
 <div class="ngrx">
     <h3>这是一个<em>ngrx</em>组件</h3>
+    <span>
+        我在reducer中设定的初始值是
+        <span class="red-f">4</span>
+    </span>
     <div class="btns">
-
         <div style="color: black;font-weight: 600;">
             Current Count:
             <span style="color: #2233cc;"> {{ num }}</span>
+            <!-- <span style="color: #2233cc;"> {{ count$ | async }}</span> -->
         </div>
 
         <button nz-button nzType="default" (click)="increment()"> Increment </button>

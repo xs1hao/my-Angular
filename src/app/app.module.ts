@@ -15,8 +15,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
 import { UiComponentsModule } from './components/ui-components.module';
+import { AppStoreModule } from './store/store.module';
+import { StoreModule, MetaReducer } from '@ngrx/store';
+import { environment } from 'src/environments/environment';
 
 registerLocaleData(zh);
+
+export const metaReducers: MetaReducer<any>[] = environment.production ? []: []; // [storeFreeze];
 
 @NgModule({
   declarations: [
@@ -32,6 +37,8 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
     UiComponentsModule,
     HttpClientModule,
+    AppStoreModule,
+    StoreModule.forRoot({}, { metaReducers }),
     HttpClientInMemoryWebApiModule.forRoot(//forRoot() 配置方法接收一个 InMemoryDataService 类来初始化内存数据库。
     InMemoryDataService, { dataEncapsulation: false }
   )
