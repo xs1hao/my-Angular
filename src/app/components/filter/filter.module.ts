@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { FilterComponent } from './filter.component';
 import { ClickoutsideDirective } from 'src/app/core/directives/clickoutside.directive';
 
