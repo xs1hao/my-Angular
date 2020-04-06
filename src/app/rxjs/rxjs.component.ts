@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import * as _ from 'lodash';
-import { from } from 'rxjs/internal/observable/from';
-import { filter } from 'rxjs/operators';
-
 
 @Component({
   selector: 'app-rxjs',
@@ -11,10 +8,10 @@ import { filter } from 'rxjs/operators';
   styleUrls: ['./rxjs.component.less']
 })
 export class RxjsComponent implements OnInit {
-
-  constructor() { }
   oButton;
+  constructor() {}
   ngOnInit(): void {
+
     // 操作符号 from filter do of 
 
     // // 发出 (1,2,3,4,5)

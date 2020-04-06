@@ -1,0 +1,31 @@
+<button class="cursor-point" nz-button nzType="default" (click)="toggleStyle()">切换效果</button>
+<div class="m-10" [class.special]="isSpecial">Special</div>
+<div class="m-10" [style.color]="isSpecial ? 'red' : 'green'">Special</div>
+
+
+<!-- form表单 -->
+------------------form---------------------
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+    <div>
+        <label for="name">
+            Name
+        </label>
+        <input id="name" type="text" formControlName="name">
+    </div>
+    <div>
+        <label for="address">
+            Address
+        </label>
+        <input id="address" type="text" formControlName="address">
+    </div>
+    <button ng-button naType="dafault" type="submit">购买</button>
+</form>
+
+<div class="ng-ul m-10">
+    <ul>
+        <li *ngFor="let item of mockData">{{item.name}}</li>
+    </ul>
+</div>
+
+<!-- 测试公共组件 -->
+<app-test></app-test>
