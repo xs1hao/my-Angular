@@ -5,10 +5,12 @@ import { UiComponentsModule } from '../components/ui-components.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SvgComponent } from './svg/svg.component';
 
 @NgModule({
     declarations: [
-        BasicAngularComponent
+        BasicAngularComponent,
+        SvgComponent
     ],
     imports: [
         CommonModule,
@@ -18,6 +20,8 @@ import { CommonModule } from '@angular/common';
         UiComponentsModule,
         NgZorroAntdModule
     ],
-    exports: []
+    exports: [
+        SvgComponent
+    ]
 })
 export class BasicPracticeModule {}

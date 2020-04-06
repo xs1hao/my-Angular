@@ -8,11 +8,13 @@
 
     <div class="input">
         <input type="text" class="input" [(ngModel)]="objdata.name" />
+        <br>
+        <input type="text" class="input" [(ngModel)]="str" />
     </div>
     
     <app-child [(child)]="str"></app-child>
 
-    <app-button [item]="str" [data]="objdata" (con)="confn($event)" #btn></app-button>
+    <app-button [item]="$any(str)" [data]="objdata" (con)="confn($event)" #btn></app-button>
 
     <div style="border: 1px solid;">
         <p (click)="toggle()" class="cursor-point">使用公共组件（轮播图）,配置了全局样式<em class="red-f">点我一下看轮播图</em></p>
