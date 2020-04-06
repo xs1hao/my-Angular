@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
+import { FilterSelectors } from 'src/app/store/selector/filter.selector';
+import { Observable } from 'rxjs';
+import { FilterFrameState } from 'src/app/store/reducer/filter.reducer';
 
 @Component({
   selector: 'app-filter',
@@ -22,9 +25,24 @@ export class FilterComponent implements OnInit {
   @Input() filter_list_show:Boolean;
   @Output() showFilterList = new EventEmitter<any>();
   @Output() shutFilterList = new EventEmitter<any>();
-  constructor() { }
+
+  listShow$: Observable<FilterFrameState>;
+
+  constructor(
+    private filterSelectors: FilterSelectors
+  ) { 
+    this.listShow$ = this.filterSelectors.filterListShow$;
+    console.log('this.lisShow@:',this.listShow$);
+   }
 
   ngOnInit(): void {
+
+    this.listShow$.subscribe(res => {
+      console.log('filter-res:',res);
+      // this.num = res['entityCache'].counters.count;
+    })
+
+
   }
 
   //点击input框，筛选列表展示效果切换；

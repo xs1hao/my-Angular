@@ -1,3 +1,10 @@
+
+<div *ngIf="!(listShow$ | async)">
+    <span class="red-f">在子组件中</span>
+    拿到的 listShow$ 初始值是一个false；
+    <p>通过 *ngIf="!(listShow$ | async)" 展示了这一段文字</p>
+</div>
+
 <div class="filter_wrap" (click)="filterListClick($event)">
     <input class="input_frame" #filter_input type="text" />
     <div @myInsertRemoveTrigger *ngIf="filter_list_show" class="filter_list">
