@@ -5,8 +5,11 @@
     <p>通过 *ngIf="!(listShow$ | async)" 展示了这一段文字</p>
 </div>
 
-<div class="filter_wrap" (click)="filterListClick($event)">
-    <input class="input_frame" #filter_input type="text" />
+<div class="filter_wrap" 
+    onClickOutSide
+    [bindFlag]="filter_list_show"
+    (onClickOutSide)="onClickOutSide()">
+    <input class="input_frame" (click)="filterListClick($event)"  #filter_input type="text" />
     <div @myInsertRemoveTrigger *ngIf="filter_list_show" class="filter_list">
         <p>筛选项</p>
         <button (click)="closeFilterList($event)"> 关闭筛选列表 </button>
