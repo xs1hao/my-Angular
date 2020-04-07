@@ -1,8 +1,5 @@
 
-<div class="workitem scrollbar"
-    onClickOutSide
-    [bindFlag]="filter_list_show"
-    (onClickOutSide)="onClickOutSide()">
+<div class="workitem scrollbar">
 
     <!-- 测试 -->
     <div *ngIf="!(listShow$ | async)">
@@ -13,6 +10,7 @@
 
     <!-- 筛选 -->
     <div class="filter">
+        <i class="icon-huidaodingbu"></i>
         <app-filter class="filter_frame" [filter_list_show]="filter_list_show" (shutFilterList)="closeFilterList()" (showFilterList)="showInputList()"></app-filter>
         <div class="other_option">
             <span>这个里是其他的操作....</span>

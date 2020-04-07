@@ -30,7 +30,8 @@
             ],
             "styles": [
               "src/styles.less",
-              "src/sq.style.less"
+              "src/sq.style.less",
+              "src/assets/styles/_font.less"
             ],
             "scripts": []
           },

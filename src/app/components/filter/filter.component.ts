@@ -11,11 +11,11 @@ import { FilterFrameState } from 'src/app/store/reducer/filter.reducer';
   animations: [
     trigger('myInsertRemoveTrigger', [
       transition(':enter', [
-        style({ opacity: 0 }),
-        animate('1000ms', style({ opacity: 1})),
+        style({ opacity: 0,height: 0 }),
+        animate('300ms', style({ opacity: 1,height:'300px'})),
       ]),
       transition(':leave', [
-        animate('1000ms', style({ opacity: 0 }))
+        animate('300ms', style({ opacity: 0,height:0 }))
       ])
     ]),
   ],
@@ -41,8 +41,6 @@ export class FilterComponent implements OnInit {
       console.log('filter-res:',res);
       // this.num = res['entityCache'].counters.count;
     })
-
-
   }
 
   //点击input框，筛选列表展示效果切换；
@@ -59,5 +57,8 @@ export class FilterComponent implements OnInit {
     this.shutFilterList.emit();
   }
 
+  onClickOutSide() {
+    this.shutFilterList.emit();
+  }
  
 }
