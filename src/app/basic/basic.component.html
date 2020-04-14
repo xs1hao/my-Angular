@@ -1,4 +1,5 @@
 <div class="basic scrollbar">
+    <button class="cursor-point" nz-button nzType="default" (click)="back()">返回上一级</button>
     <button class="cursor-point" nz-button nzType="default" (click)="toggleStyle()">切换效果</button>
     <div class="m-10" [class.special]="isSpecial">Special</div>
     <div class="m-10" [style.color]="isSpecial ? 'red' : 'green'">Special</div>
@@ -15,6 +16,24 @@
     <br>
     <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
     <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
+    <ng-container>
+        <h4>管道的两种实现形式</h4>
+        <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址</a>
+        <div>
+            <ul>
+                <li *ngFor="let item of (mockDatas | filter:{type: 'name',value: inputValues})">
+                    {{item.name}}
+                </li>
+            </ul>
+        </div>
+    
+        <ng-container *ngIf="(mockDatas | filter:{type: 'name',value: inputValues}) as result">
+            <div *ngFor="let item of result">
+                {{item.name}}
+            </div>
+            <p>Count: <b>{{result.length}}</b></p>
+        </ng-container>
+    </ng-container>
 
     <!-- form表单 -->
     ------------------form---------------------

@@ -6,11 +6,13 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SvgComponent } from './svg/svg.component';
+import { FilterPipe } from '../core/pipes/filter-search.pipe';
 
 @NgModule({
     declarations: [
         BasicAngularComponent,
-        SvgComponent
+        SvgComponent,
+        FilterPipe
     ],
     imports: [
         CommonModule,
@@ -18,10 +20,11 @@ import { SvgComponent } from './svg/svg.component';
         FormsModule,
         BasicPracticeRoutingModule,
         UiComponentsModule,
-        NgZorroAntdModule
+        NgZorroAntdModule,
     ],
     exports: [
-        SvgComponent
+        SvgComponent,
+        FilterPipe
     ]
 })
 export class BasicPracticeModule {}
