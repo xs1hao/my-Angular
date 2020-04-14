@@ -19,6 +19,8 @@ export class BasicAngularComponent implements OnInit {
   basicObj;
   inputValues:string = '';
 
+  mockDatas: Array<any> = [];
+  inputVal = '';
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,
@@ -35,12 +37,24 @@ export class BasicAngularComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
 
+    this.mockDatas = [
+      {name: '李磊1245',id: 1},
+      {name: '王明25623',id: 2},
+      {name: '张刚5235',id: 3},
+      {name: '程红0875',id: 4},
+      {name: '陈晓1245',id: 5},
+      {name: '王红是1245',id: 6},
+    ]
+
     //获取路由参数方式；
     const id = this.route.snapshot.paramMap.get('id');
     console.log('id:',id);//19047
-    console.log('this.location:',this.location);
+    console.log('this.location:',this.location.path());
   }
 
+  back() {
+    this.location.back();
+  }
   // input框输入属性 
   onKey(value:string,eve:KeyboardEvent) {
     this.inputValues = value;
