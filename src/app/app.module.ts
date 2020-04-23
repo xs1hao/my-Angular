@@ -18,6 +18,7 @@ import { UiComponentsModule } from './components/ui-components.module';
 import { AppStoreModule } from './store/store.module';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
+import { BasicPracticeModule } from './basic/basic.module';
 
 registerLocaleData(zh);
 
@@ -36,6 +37,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     HttpClientModule,
     BrowserAnimationsModule,
     UiComponentsModule,
+    BasicPracticeModule,
     HttpClientModule,
     AppStoreModule,
     StoreModule.forRoot({}, { metaReducers }),

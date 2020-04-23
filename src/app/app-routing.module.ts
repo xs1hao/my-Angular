@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BasicAngularComponent } from './basic/basic.component';
+import { TestComponent } from './basic/test/test.component';
 
 const routes: Routes = [
   {
@@ -20,7 +22,11 @@ const routes: Routes = [
   },
   {
     path: 'basic/:id',
-    loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
+    component: BasicAngularComponent,
+    children: [
+      { path: 'basic_test/:idS', component: TestComponent}
+    ]
+    // loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
   },
   {
     path: 'workdemo',

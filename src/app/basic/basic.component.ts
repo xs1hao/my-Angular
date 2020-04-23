@@ -18,6 +18,8 @@ export class BasicAngularComponent implements OnInit {
 
   basicObj;
   inputValues:string = '';
+  userId:string;
+  showParent = true;
 
   mockDatas: Array<any> = [];
   inputVal = '';
@@ -38,16 +40,17 @@ export class BasicAngularComponent implements OnInit {
     this.getData();
 
     this.mockDatas = [
-      {name: '李磊1245',id: 1},
-      {name: '王明25623',id: 2},
-      {name: '张刚5235',id: 3},
-      {name: '程红0875',id: 4},
-      {name: '陈晓1245',id: 5},
-      {name: '王红是1245',id: 6},
+      {name: '李磊1',id: 1},
+      {name: '王明2',id: 2},
+      {name: '张刚3',id: 3},
+      {name: '程红4',id: 4},
+      {name: '陈晓5',id: 5},
+      {name: '王红是6',id: 6},
     ]
 
     //获取路由参数方式；
     const id = this.route.snapshot.paramMap.get('id');
+    this.userId = id;
     console.log('id:',id);//19047
     console.log('this.location:',this.location.path());
   }

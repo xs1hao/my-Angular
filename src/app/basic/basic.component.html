@@ -4,62 +4,82 @@
     <div class="m-10" [class.special]="isSpecial">Special</div>
     <div class="m-10" [style.color]="isSpecial ? 'red' : 'green'">Special</div>
 
-    <p>$any()方法测试</p>
-    <!-- <p>能不能展示哩？？ {{basicObj.bestByDate}}</p> -->
-    <!-- <p>能不能展示哩？？ {{$any(basicObj).bestByDate}}</p> -->
-    <p>安全导航运算符（ ? ）</p>
-    <p>安全导航运算符---能不能展示哩？？ {{basicObj?.bestByDate}}</p>
-    <p>非空断言 ！ </p>
-    <!-- <p>非空断言---能不能展示哩？？ {{basicObj!.bestByDate}}</p> -->
+    <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">组件内部子路由</button>
+    <button [routerLink]="['/basic/'+userId]" (click)="showParent = true">返回</button>
 
-    ------input--------
-    <br>
-    <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
-    <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
-    <ng-container>
-        <h4>管道的两种实现形式</h4>
-        <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址</a>
-        <div>
-            <ul>
-                <li *ngFor="let item of (mockDatas | filter:{type: 'name',value: inputValues})">
+    <div *ngIf="showParent">
+        <p>$any()方法测试</p>
+        <!-- <p>能不能展示哩？？ {{basicObj.bestByDate}}</p> -->
+        <!-- <p>能不能展示哩？？ {{$any(basicObj).bestByDate}}</p> -->
+        <p>安全导航运算符（ ? ）</p>
+        <p>安全导航运算符---能不能展示哩？？ {{basicObj?.bestByDate}}</p>
+        <p>非空断言 ！ </p>
+        <!-- <p>非空断言---能不能展示哩？？ {{basicObj!.bestByDate}}</p> -->
+    
+        ------input--------
+        <br>
+        <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
+        <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
+        <ng-container>
+            <h4>管道的两种实现形式</h4>
+            <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址</a>
+            <div>
+                <ul>
+                    <li *ngFor="let item of (mockDatas | filter:{type: 'name',value: inputValues})">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        
+            <ng-container *ngIf="(mockDatas | filter:{type: 'name',value: inputValues}) as result">
+                <div *ngFor="let item of result">
                     {{item.name}}
-                </li>
+                </div>
+                <p>Count: <b>{{result.length}}</b></p>
+            </ng-container>
+        </ng-container>
+    
+    
+        <h4>测试ngFor</h4>
+        <div *ngFor="let item of mockDatas;index as labelIndex">
+            <div *ngIf="labelIndex <2">
+                <span>{{item.name}}</span>
+            </div>
+        </div>
+        <hr>
+        <div *ngIf="mockDatas.length > 2">
+            <div *ngFor="let items of mockDatas.slice(2)">
+                <span>{{items.name}}</span>
+            </div>
+        </div>
+    
+        <!-- form表单 -->
+        ------------------form---------------------
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+            <div>
+                <label for="name">
+                    Name
+                </label>
+                <input id="name" type="text" formControlName="name">
+            </div>
+            <div>
+                <label for="address">
+                    Address
+                </label>
+                <input id="address" type="text" formControlName="address">
+            </div>
+            <button ng-button naType="dafault" type="submit">购买</button>
+        </form>
+    
+        <div class="ng-ul m-10">
+            <ul>
+                <li *ngFor="let item of mockData">{{item.name}}</li>
             </ul>
         </div>
     
-        <ng-container *ngIf="(mockDatas | filter:{type: 'name',value: inputValues}) as result">
-            <div *ngFor="let item of result">
-                {{item.name}}
-            </div>
-            <p>Count: <b>{{result.length}}</b></p>
-        </ng-container>
-    </ng-container>
-
-    <!-- form表单 -->
-    ------------------form---------------------
-    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
-        <div>
-            <label for="name">
-                Name
-            </label>
-            <input id="name" type="text" formControlName="name">
-        </div>
-        <div>
-            <label for="address">
-                Address
-            </label>
-            <input id="address" type="text" formControlName="address">
-        </div>
-        <button ng-button naType="dafault" type="submit">购买</button>
-    </form>
-
-    <div class="ng-ul m-10">
-        <ul>
-            <li *ngFor="let item of mockData">{{item.name}}</li>
-        </ul>
+        <app-svg></app-svg>
+        <!-- 测试公共组件 -->
+        <app-test></app-test>
     </div>
-
-    <app-svg></app-svg>
-    <!-- 测试公共组件 -->
-    <app-test></app-test>
+    <router-outlet></router-outlet>
 </div>

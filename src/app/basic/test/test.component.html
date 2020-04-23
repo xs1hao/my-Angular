@@ -1,0 +1,10 @@
+<div>
+    <h4>测试ngFor</h4>
+    {{dataS.length}}
+    <span>
+        {{dataS[0].name}}
+    </span>
+    <div *ngFor="let item of dataS">
+        <span>{{item.id}}</span>
+    </div>
+</div>
