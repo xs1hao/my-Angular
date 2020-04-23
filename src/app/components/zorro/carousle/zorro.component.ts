@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./zorro.component.less']
 })
 export class ZorroComponent implements OnInit {
-  url = 'assets/';
+  url = 'assets/imgs/';
   array = [1, 2, 3, 4];
   imgStyle:Array<object> = []
   imgUrl:Array<string> = []

@@ -1,24 +1,31 @@
 <div class="content">
-  <p>
-    这是我的angular 练习项目~~
-    <span>2020年3月22日00:24:36</span>
-  </p>
-  <div class="current_time">
-    当前(页面刷新)时间：
-    <span>
-      {{current_time}}
-    </span>
-  </div>
-  <!-- 路由切换 -->
-  <div class="router-group">
-    <span class="router" [routerLink]="['/home']">首页</span>
-    <span class="router" [routerLink]="['/style']">父子组件交互</span>
-    <span class="router" [routerLink]="['/rxjs']">Rxjs-组件</span>
-    <span class="router" [routerLink]="['/counter']">Ngrx-组件</span>
-    <span class="router" routerLink="/basic/{{id}}">模板语法</span>
-    <span class="router" [routerLink]="['/workdemo']">测试练习</span>
-  </div>
-  <div class="router-content">
-    <router-outlet></router-outlet>
-  </div>
+  <nz-layout>
+    <nz-header>
+      <div class="des">
+        <span>这是我的angular 练习项目~~</span>
+        <img src="../../assets/imgs/LM.gif" alt="" style="width: 100px;">
+      </div>
+      <div class="current_time">
+        当前(页面刷新)时间：
+        <span>{{current_time}}</span>
+      </div>
+    </nz-header>
+    <nz-content class="outer-content">
+      <nz-layout class="inner-layout">
+        <nz-sider nzWidth="200px" nzTheme="light" style="overflow: auto;">
+          <ul nz-menu nzMode="inline" class="sider-menu">
+            <li nz-menu-item nzSelected id="mmp" [routerLink]="['/home']">首页</li>
+            <li nz-menu-item [routerLink]="['/style']">父子组件交互</li>
+            <li nz-menu-item [routerLink]="['/rxjs']">Rxjs-组件</li>
+            <li nz-menu-item [routerLink]="['/counter']">Ngrx-组件</li>
+            <li nz-menu-item routerLink="/basic/{{id}}">模板语法</li>
+            <li nz-menu-item [routerLink]="['/workdemo']">测试练习</li>
+          </ul>
+        </nz-sider>
+        <nz-content class="inner-content">
+          <router-outlet></router-outlet>
+        </nz-content>
+      </nz-layout>
+    </nz-content>
+  </nz-layout>
 </div>

@@ -1,31 +1,58 @@
 .content{
-    padding: 20px 50px;
     height: 100%;
-    overflow: hidden;
-    overflow-y: scroll;
-    .router-group{
-        margin:10px;
-        .router{
-            padding: 5px;
-            background-color: #b8d5f2;
-            border-radius: 2px;
-            margin-right:10px ;
-            outline: none;
-            cursor: pointer;
+    .ant-layout{
+        height: 100%;
+        .ant-layout-header{
+            background-color: #c0dfeb;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #cccccc;
+            .current_time{
+                span{
+                    font-size: 20px;
+                    font-weight: 600;
+                    color:#0043ff;
+                }
+            }
         }
-    }
-    
-    .current_time{
-        padding: 10px;
-        background-color: #dedada;
-        font-size: 20px;
-        span{
-            color: #23c689;
+        .outer-content{
+            height: calc(~'100%-64px');
+            .ant-layout-content{
+                padding: 10px;
+                .inner-layout{
+                    height: 100%;
+                    .ant-layout-sider{
+                        .ant-layout-sider-children{
+                            .sider-menu{
+                                .ant-menu-item{
+                                    border-top: 1px solid red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+        
+        
     }
-    .router-content{
-        margin-top: 30px;
-        background-color: #ece6e6;
-        height: 80%;
-    }
+}
+p{
+    margin: 0;
+}
+::ng-deep .ant-layout-sider-children{
+    border-right: 1px solid #cccccc;
+}
+::ng-deep .ant-layout-sider-children .ant-menu-inline .ant-menu-item{
+    border-top: 1px solid #cccccc;
+    margin: 0;
+    outline: none;
+}
+#mmp {
+    border: none;
+}
+
+::ng-deep .ant-layout-sider-children{
+    margin: 0;
+    padding: 0;
 }
