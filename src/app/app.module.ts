@@ -16,7 +16,6 @@ import zh from '@angular/common/locales/zh';
 import { AppStoreModule } from './store/store.module';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
-import { CommonModule } from './shared/core/comom.module';
 import { BasicPracticeModule } from './pages/basic/basic.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -31,7 +30,6 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
     NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
