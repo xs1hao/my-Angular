@@ -6,6 +6,7 @@ import { BootstrapTesstComponent } from './bootstrap-tesst.component';
 import { ChildComponent } from './child/child.component';
 import { BootstrapRoutingModule } from './bootstrap-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CodeToggleComponent } from 'src/app/shared/components/code-toggle/code-toggle.component';
 
 
 @NgModule({

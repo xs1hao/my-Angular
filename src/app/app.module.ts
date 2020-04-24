@@ -36,7 +36,6 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     BrowserAnimationsModule,
     SharedModule,
     BasicPracticeModule,
-    HttpClientModule,
     AppStoreModule,
     StoreModule.forRoot({}, { metaReducers }),
     HttpClientInMemoryWebApiModule.forRoot(//forRoot() 配置方法接收一个 InMemoryDataService 类来初始化内存数据库。

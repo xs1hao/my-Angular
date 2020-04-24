@@ -3,7 +3,7 @@ import {
   OnChanges, SimpleChange, SimpleChanges, DoCheck 
 } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { debounceTime, distinctUntilChanged, pluck, combineAll } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, pluck } from 'rxjs/operators';
 
 @Component({
   selector: 'app-button',
@@ -82,6 +82,10 @@ export class ButtonComponent implements OnInit, OnChanges, DoCheck {
   }
   click () {
     this.con.emit(this.data);
+  }
+
+  methodInChildComponent() {
+    alert('Hello~！父组件；你通过@Viewchild调用了子组件的方法。')
   }
 
 }

@@ -1,9 +1,5 @@
 
-<div *ngIf="!(listShow$ | async)">
-    <span class="red-f">在子组件中</span>
-    拿到的 listShow$ 初始值是一个false；
-    <p>通过 *ngIf="!(listShow$ | async)" 展示了这一段文字</p>
-</div>
+
 
 <div class="filter_wrap" 
     onClickOutSide
@@ -12,6 +8,12 @@
     <input class="input_frame" (click)="filterListClick($event)"  #filter_input type="text" />
     <div @myInsertRemoveTrigger *ngIf="filter_list_show" class="filter_list">
         <p>筛选项</p>
+        <div *ngIf="!!(listShow$ | async)">
+            <span class="red-f">在子组件中</span>
+            拿到的 listShow$ 初始值是一个false；
+            <em class="red-f">{{(listShow$ | async)}}</em>
+            <p>通过 *ngIf="!(listShow$ | async)" 展示了这一段文字</p>
+        </div>
         <button (click)="closeFilterList($event)"> 关闭筛选列表 </button>
     </div>
 </div>

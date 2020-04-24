@@ -32,13 +32,13 @@ export class FilterComponent implements OnInit {
     private filterSelectors: FilterSelectors
   ) { 
     this.listShow$ = this.filterSelectors.filterListShow$;
-    console.log('this.lisShow@:',this.listShow$);
+    console.log('子组件中：',this.listShow$);
    }
 
   ngOnInit(): void {
-
     this.listShow$.subscribe(res => {
       console.log('filter-res:',res);
+      console.log('filter-res:',res['entityCache'].filters); // 这里能拿到当前过滤器需要的状态
       // this.num = res['entityCache'].counters.count;
     })
   }

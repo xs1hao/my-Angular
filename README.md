@@ -37,3 +37,6 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 ##### 模拟服务器
 npm install angular-in-memory-web-api --save
+
+#### icon-font 使用
+注意 要更新5个文件。
