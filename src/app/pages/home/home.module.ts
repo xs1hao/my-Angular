@@ -1,14 +1,15 @@
-import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { UiComponentsModule } from '../components/ui-components.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
     declarations:[
-        HomeComponent
+        HomeComponent,
+        
     ],
     imports:[
-        UiComponentsModule,
+        SharedModule,
         HomeRoutingModule
     ]
 })

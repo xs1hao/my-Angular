@@ -1,7 +1,7 @@
 import { createSelector, createFeatureSelector, Store } from '@ngrx/store';
 import { CounterState } from '../reducer/counter.reducer';
-import { pingjie } from 'src/app/core/utlis/sting';
 import { Injectable } from '@angular/core';
+import { pingjie } from 'src/app/shared/core/utlis/sting';
 
 const selectCounterStates = (state: CounterState) => state;
 

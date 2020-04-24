@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CommonModule } from './core/comom.module';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 // http相关
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -14,11 +13,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import { UiComponentsModule } from './components/ui-components.module';
 import { AppStoreModule } from './store/store.module';
 import { StoreModule, MetaReducer } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
-import { BasicPracticeModule } from './basic/basic.module';
+import { CommonModule } from './shared/core/comom.module';
+import { BasicPracticeModule } from './pages/basic/basic.module';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(zh);
 
@@ -36,7 +36,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    UiComponentsModule,
+    SharedModule,
     BasicPracticeModule,
     HttpClientModule,
     AppStoreModule,

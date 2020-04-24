@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterSelectors } from '../store/selector/filter.selector';
+import { FilterSelectors } from '../../store/selector/filter.selector';
 import { Observable } from 'rxjs';
-import { FilterFrameState } from '../store/reducer/filter.reducer';
+import { FilterFrameState } from '../../store/reducer/filter.reducer';
 
 @Component({
   selector: 'app-workdemo',

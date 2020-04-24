@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from '../store/reducer/index';
-import { CommonType } from '../core/utlis/entityCache';
+import { CommonType } from '../shared/core/utlis/entityCache';
 
 @NgModule({
   imports: [
