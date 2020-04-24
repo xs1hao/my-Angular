@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { increment, decrement, reset } from '../store/action/counter.actions';
-import { CounterSelectors, getInitState, getIndexConter } from '../store/selector/counter.selector';
-import { CommonUtils } from '../core/utlis/common.utils';
+import { increment, decrement, reset } from '../../store/action/counter.actions';
+import { CounterSelectors, getInitState, getIndexConter } from '../../store/selector/counter.selector';
 import { Observable } from 'rxjs';
-import { CounterState } from '../store/reducer/counter.reducer';
-import { CommonType } from '../core/utlis/entityCache';
+import { CounterState } from '../../store/reducer/counter.reducer';
+import { CommonUtils } from '../../shared/core/utlis/common.utils';
+import { CommonType } from '../../shared/core/utlis/entityCache';
 
 @Component({
   selector: 'app-counter',

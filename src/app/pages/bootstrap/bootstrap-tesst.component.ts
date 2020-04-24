@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { ButtonComponent } from '../components/zorro/button/button.component';
 import { Data, Datas } from './datatype';
+import { ButtonComponent } from 'src/app/shared/components/zorro/button/button.component';
 
 @Component({
   selector: 'app-bootstrap-tesst',

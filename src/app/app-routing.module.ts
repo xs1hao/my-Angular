@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BasicAngularComponent } from './basic/basic.component';
-import { TestComponent } from './basic/test/test.component';
+import { BasicAngularComponent } from './pages/basic/basic.component';
+import { TestComponent } from './pages/basic/test/test.component';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule)
+    loadChildren: () => import('./pages/home/home.module').then(mod => mod.HomeModule)
   },
   {
     path: 'style',
-    loadChildren: () => import('./core/comom.module').then(mod => mod.CommonModule)
+    loadChildren: () => import('./pages/bootstrap/bootstrap.module').then(mod => mod.BootstrapModule)
   },
   {
     path: 'rxjs',
-    loadChildren: () => import('./rxjs/rxjs.module').then(mod => mod.RxjsModule)
+    loadChildren: () => import('./pages/rxjs/rxjs.module').then(mod => mod.RxjsModule)
   },
   {
     path: 'counter',
-    loadChildren: () => import('./counter/counter.module').then(mod => mod.CounterModule)
+    loadChildren: () => import('./pages/counter/counter.module').then(mod => mod.CounterModule)
   },
   {
     path: 'basic/:id',
@@ -30,7 +30,7 @@ const routes: Routes = [
   },
   {
     path: 'workdemo',
-    loadChildren: () => import('./workdemo/workdemo.module').then(mod => mod.WorkdemoModule)
+    loadChildren: () => import('./pages/workdemo/workdemo.module').then(mod => mod.WorkdemoModule)
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home' }
