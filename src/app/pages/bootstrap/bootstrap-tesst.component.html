@@ -1,21 +1,35 @@
-<div>
-    <h3>angular中主要使用的是ng-zorro组件~~</h3>
-    <button type="button" class="btn btn-primary">
-        Single Button
-    </button>
-    <br>
-    <em class="red-f">{{str}}</em>
+<div class="content">
+    <div class="btn-des">
+        <div class="des">
+            在父组件中通过@viewchild调用子组件的方法。
+        </div>
+        <button nz-button nzType="default" #dot (click)="callChildComponent()">调用子组件的方法</button>
+        <em *ngIf="disabledBtnView" class="red-f m-l-5">啊，我不能点击了~~</em>
+    </div>
+    <app-code-toggle [imgId]="1"></app-code-toggle>
 
+
+    <div class="btn-des">
+        <span class="des">
+            这里通过点击上面的按钮之后，将一个模板插入一个指定的模板
+        </span>
+        <ng-container #vc></ng-container>
+        <ng-template #tpl>
+            <h1 (click)="disabledBtn()" style="cursor: pointer;background-color: #C0DFEB;">
+                <span>Hello, {{objdata.name}}</span>
+                <h5>点我之后，上面的按钮就不能用了哦~~~~</h5>
+            </h1>
+        </ng-template>
+    </div>
+
+    <em class="red-f">{{str}}</em>
     <div class="input">
         <input type="text" class="input" [(ngModel)]="objdata.name" />
         <br>
         <input type="text" class="input" [(ngModel)]="str" />
     </div>
-    
     <app-child [(child)]="str"></app-child>
-
     <app-button [item]="$any(str)" [data]="objdata" (con)="confn($event)" #btn></app-button>
-
     <div style="border: 1px solid;">
         <p (click)="toggle()" class="cursor-point">使用公共组件（轮播图）,配置了全局样式<em class="red-f">点我一下看轮播图</em></p>
         <ng-container *ngIf="show">

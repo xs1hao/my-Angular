@@ -1,0 +1,8 @@
+<div class="code-wrap">
+    <div class="toggle">
+        <i class="iconfont icon-code" (click)="toggleCodeImg()"></i>
+    </div>
+    <div class="img-wrap scrollbar">
+        <img *ngIf="show" src="{{url}}" alt="图片">
+    </div>
+</div>

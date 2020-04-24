@@ -4,26 +4,32 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { ZorroComponent } from './components/zorro/carousle/zorro.component';
 import { ButtonComponent } from './components/zorro/button/button.component';
-import { FilterModule } from './components/filter/filter.module';
 import { TestComponent } from './components/test/test.component';
+import { CodeToggleComponent } from './components/code-toggle/code-toggle.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { ClickoutsideDirective } from './core/directives/clickoutside.directive';
 
 @NgModule({
     declarations:[
         ZorroComponent,
         TestComponent,
-        ButtonComponent
+        ButtonComponent,
+        FilterComponent,
+        CodeToggleComponent,
+        ClickoutsideDirective
     ],
     imports:[
         CommonModule,
         FormsModule,
-        NgZorroAntdModule,
-        FilterModule 
+        NgZorroAntdModule
     ],
     exports:[
         ZorroComponent,
         TestComponent,
         ButtonComponent,
-        FilterModule
+        FilterComponent,
+        CodeToggleComponent,
+        ClickoutsideDirective
     ]
 })
 export class SharedModule{}
