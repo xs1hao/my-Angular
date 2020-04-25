@@ -8,11 +8,11 @@
     </div>
     <app-code-toggle [imgId]="1"></app-code-toggle>
 
-
     <div class="btn-des">
         <span class="des">
             这里通过点击上面的按钮之后，将一个模板插入一个指定的模板
         </span>
+        <app-code-toggle [imgId]="2"></app-code-toggle>
         <ng-container #vc></ng-container>
         <ng-template #tpl>
             <h1 (click)="disabledBtn()" style="cursor: pointer;background-color: #C0DFEB;">

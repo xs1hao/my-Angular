@@ -11,7 +11,7 @@
     <!-- 筛选 -->
     <div class="filter">
         <i class="iconfont icon-huidaodingbu"></i>
-        <app-filter class="filter_frame" [filter_list_show]="filter_list_show" (shutFilterList)="closeFilterList()" (showFilterList)="showInputList()"></app-filter>
+        <app-filter class="filter_frame" [list_show]="filter_list_show" (shutFilterList)="closeFilterList()" (showFilterList)="showInputList()"></app-filter>
         <div class="other_option">
             <span>这个里是其他的操作....</span>
         </div>
@@ -19,5 +19,6 @@
     <!-- 看板 -->
     <div class="workitem_kanban" >
         <h4>这里是看板内容...</h4>
+        <app-code-toggle [imgId]="4"></app-code-toggle>
     </div>
 </div>
