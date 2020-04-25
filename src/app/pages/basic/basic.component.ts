@@ -3,12 +3,14 @@ import { FormBuilder } from '@angular/forms';
 import { DataService } from './service/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { ConfigService, Config } from 'src/app/httpConfig/config.service';
 
 
 @Component({
   selector: 'app-basic-practice',
   templateUrl: './basic.component.html',
-  styleUrls: ['./basic.component.less']
+  styleUrls: ['./basic.component.less'],
+  providers: [ ConfigService ],
 })
 export class BasicAngularComponent implements OnInit {
 
@@ -23,11 +25,14 @@ export class BasicAngularComponent implements OnInit {
 
   mockDatas: Array<any> = [];
   inputVal = '';
+  config: Config;
+  error: any;
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private configService: ConfigService
   ) { 
     this.isSpecial = true;
     this.checkoutForm = this.formBuilder.group({
@@ -38,16 +43,6 @@ export class BasicAngularComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-
-    this.mockDatas = [
-      {name: '李磊1',id: 1},
-      {name: '王明2',id: 2},
-      {name: '张刚3',id: 3},
-      {name: '程红4',id: 4},
-      {name: '陈晓5',id: 5},
-      {name: '王红是6',id: 6},
-    ]
-
     //获取路由参数方式；
     const id = this.route.snapshot.paramMap.get('id');
     this.userId = id;
@@ -55,15 +50,20 @@ export class BasicAngularComponent implements OnInit {
     console.log('this.location:',this.location.path());
   }
 
+
+  getConfigJson() {
+    this.configService.getConfig()
+      .subscribe(res => console.log('configJsonResponse:',res))
+    }
+
   back() {
     this.location.back();
   }
   // input框输入属性 
-  onKey(value:string,eve:KeyboardEvent) {
+  onKey(value: string, eve: KeyboardEvent) {
     this.inputValues = value;
-    // console.log('eve:',eve);
     if(value == "" && eve.keyCode == 8){
-      alert('我使用了删除键，删除完了内容~~~')
+      console.log('我使用了删除键，删除完了内容~~~')
     }
   }
   onEnter(value:string) {

@@ -10,23 +10,22 @@ import { Hero } from './pages/basic/service/data.type';
  *
  */
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 11, name: 'Dr Nice' },
-      { id: 12, name: 'Narco' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 11, name: '王二小' },
+      { id: 12, name: '李磊在我的app中' },
+      { id: 13, name: '王红红' },
+      { id: 14, name: '程婷婷的爸爸' },
+      { id: 15, name: '鲁班七号' },
+      { id: 16, name: '项羽' },
+      { id: 17, name: '刘备' },
+      { id: 18, name: '诸葛亮' },
+      { id: 19, name: '周瑜' },
+      { id: 20, name: '曹操' }
     ];
     return {heroes};
   }

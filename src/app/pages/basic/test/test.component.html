@@ -1,10 +1,7 @@
-<div>
+<div style="background-color: #cbeadc;margin: 10px 0;">
     <h4>测试ngFor</h4>
-    {{dataS.length}}
-    <span>
-        {{dataS[0].name}}
-    </span>
+    <em class="red-f">发现一个问题，在父组件中通过路由加载子组件后，子组件中init方法中获取到的数据不会再页面中渲染；可以通过ngAfterInit()渲染数据</em>
     <div *ngFor="let item of dataS">
-        <span>{{item.id}}</span>
+        <span>{{item.name}}</span>
     </div>
 </div>
