@@ -3,6 +3,8 @@ import { trigger, style, transition, animate } from '@angular/animations';
 import { FilterSelectors } from 'src/app/store/selector/filter.selector';
 import { Observable } from 'rxjs';
 import { FilterFrameState } from 'src/app/store/reducer/filter.reducer';
+import { Store } from '@ngrx/store';
+import { InputClick } from 'src/app/store/action';
 
 @Component({
   selector: 'app-filter',
@@ -22,14 +24,15 @@ import { FilterFrameState } from 'src/app/store/reducer/filter.reducer';
 })
 export class FilterComponent implements OnInit {
 
-  @Input() filter_list_show:Boolean;
+  @Input() list_show:Boolean;
   @Output() showFilterList = new EventEmitter<any>();
   @Output() shutFilterList = new EventEmitter<any>();
 
   listShow$: Observable<FilterFrameState>;
 
   constructor(
-    private filterSelectors: FilterSelectors
+    private filterSelectors: FilterSelectors,
+    private store$: Store<object>,
   ) { 
     this.listShow$ = this.filterSelectors.filterListShow$;
     console.log('子组件中：',this.listShow$);
@@ -38,7 +41,7 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {
     this.listShow$.subscribe(res => {
       console.log('filter-res:',res);
-      console.log('filter-res:',res['entityCache'].filters); // 这里能拿到当前过滤器需要的状态
+      console.log('res[entityCache].filters:',res['entityCache'].filters); // 这里能拿到当前过滤器需要的状态
       // this.num = res['entityCache'].counters.count;
     })
   }
@@ -47,7 +50,8 @@ export class FilterComponent implements OnInit {
   filterListClick(event) {
     event.stopPropagation();
     this.showFilterList.emit();
-    if(this.filter_list_show){
+    this.store$.dispatch(InputClick());
+    if(this.list_show){
       this.shutFilterList.emit();
     }
   }
