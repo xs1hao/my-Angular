@@ -6,8 +6,12 @@
 
     <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">组件内部子路由</button>
     <button [routerLink]="['/basic/'+userId]" (click)="showParent = true">返回</button>
+    
 
-    <div *ngIf="showParent">
+    <div *ngIf="showParent" style="margin-top: 10px;">
+        <button (click)="getConfigJson()">getConfigJson</button>
+        ➟使用模拟服务器，读取json文件内容 <span class="red-f">❤</span>
+        <app-code-toggle [imgId]="5"></app-code-toggle>
         <p>$any()方法测试</p>
         <!-- <p>能不能展示哩？？ {{basicObj.bestByDate}}</p> -->
         <!-- <p>能不能展示哩？？ {{$any(basicObj).bestByDate}}</p> -->
@@ -17,30 +21,33 @@
         <!-- <p>非空断言---能不能展示哩？？ {{basicObj!.bestByDate}}</p> -->
     
         ------input--------
-        <br>
-        <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
-        <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
-        <ng-container>
-            <h4>管道的两种实现形式</h4>
-            <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址</a>
-            <div>
-                <ul>
-                    <li *ngFor="let item of (mockDatas | filter:{type: 'name',value: inputValues})">
-                        {{item.name}}
-                    </li>
-                </ul>
-            </div>
         
-            <ng-container *ngIf="(mockDatas | filter:{type: 'name',value: inputValues}) as result">
-                <div *ngFor="let item of result">
-                    {{item.name}}
+        <div style="background-color: #d8dddd;">
+            <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
+            <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
+            <h4>管道的两种实现形式</h4>
+            <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址(angular中使用pipe管道过滤结果集)</a>
+            <div style="display: flex;justify-content: space-around;">
+                <div>
+                    <ul>
+                        <li *ngFor="let item of (mockData | filter:{type: 'name',value: inputValues})">
+                            {{item.name}}
+                        </li>
+                    </ul>
                 </div>
-                <p>Count: <b>{{result.length}}</b></p>
-            </ng-container>
-        </ng-container>
+                <div>
+                    <ng-container *ngIf="(mockData | filter:{type: 'name',value: inputValues}) as result">
+                        <div *ngFor="let item of result">
+                            {{item.name}}
+                        </div>
+                        <p>Count: <b>{{result.length}}</b></p>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
     
     
-        <h4>测试ngFor</h4>
+        <h4>测试ngFor，限定循环长度...</h4>
         <div *ngFor="let item of mockDatas;index as labelIndex">
             <div *ngIf="labelIndex <2">
                 <span>{{item.name}}</span>

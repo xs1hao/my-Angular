@@ -7,12 +7,14 @@ import { CommonModule } from '@angular/common';
 import { SvgComponent } from './svg/svg.component';
 import { FilterPipe } from 'src/app/shared/core/pipes/filter-search.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
     declarations: [
         BasicAngularComponent,
         SvgComponent,
-        FilterPipe
+        FilterPipe,
+        TestComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +26,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     ],
     exports: [
         SvgComponent,
-        FilterPipe
+        FilterPipe,
+        TestComponent
     ]
 })
 export class BasicPracticeModule {}
