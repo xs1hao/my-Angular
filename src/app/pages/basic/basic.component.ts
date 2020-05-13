@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { DataService } from './service/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ConfigService, Config } from 'src/app/httpConfig/config.service';
+import { EventEmitService } from 'src/app/shared/core/eventEmit/eventEmit.service';
 
 
 @Component({
@@ -31,13 +32,29 @@ export class BasicAngularComponent implements OnInit {
     private formBuilder: FormBuilder,
     private dataService: DataService,
     private route: ActivatedRoute,
+    private routers: Router,
     private location: Location,
-    private configService: ConfigService
+    private configService: ConfigService,
+    private eventEmitService: EventEmitService
   ) { 
     this.isSpecial = true;
     this.checkoutForm = this.formBuilder.group({
       name: '',
       address: ''
+    });
+    
+    /**
+     * 下面两种写法都能实现；
+     * 一个使用了自定义类上面的方法；
+     * 另一个使用了EventEmitter类上的方法；
+     * 二者效果是一样的。
+     */
+
+    // this.eventEmitService.event$.subscribe(res => {
+    //   console.log(res);
+    // });
+    this.eventEmitService.subscribe(data => {
+      console.log(data);
     })
   }
 
@@ -85,6 +102,15 @@ export class BasicAngularComponent implements OnInit {
     .subscribe(res => this.mockData = res);
   }
 
+  backParentRouter() {
+    this.showParent = true;
+    this.routers.navigate(['/basic',19047]);
+  }
 
+  toChildConponents() {
+    this.showParent = false;
+    // this.routers.navigate(['/basic/19047/basic_test/',2020]);
+    this.routers.navigate(['basic',19047,'basic_test',2022]);
+  }
 
 }

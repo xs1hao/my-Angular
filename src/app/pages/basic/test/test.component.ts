@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { DataService } from '../service/data.service';
+import { EventEmitService } from 'src/app/shared/core/eventEmit/eventEmit.service';
 
 @Component({
   selector: 'app-basic-test',
@@ -16,6 +17,7 @@ export class TestComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
+    private eventEmitService: EventEmitService
   ) {
 
   }
@@ -28,6 +30,9 @@ export class TestComponent implements OnInit {
   ngAfterViewInit() {
     this.getData();
     console.log('dataS:',this.dataS);
+    // 下面这两种方式都可以对外广播；
+    // this.eventEmitService.emit('Emit[getConfigJson]');
+    this.eventEmitService.event$.emit('this.eventEmitService.event$.emit')
   }
 
   private getData() {
