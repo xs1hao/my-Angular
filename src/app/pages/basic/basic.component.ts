@@ -104,12 +104,24 @@ export class BasicAngularComponent implements OnInit {
 
   backParentRouter() {
     this.showParent = true;
+    const curUrl = this.routers.url;
+    // this.location.go('/basic','19047'); // http://localhost:4201/basic?19047
+    // const url = `/basic/${19048}`
+    // this.location.go(url); 
+
+
     this.routers.navigate(['/basic',19047]);
+
   }
 
   toChildConponents() {
     this.showParent = false;
     // this.routers.navigate(['/basic/19047/basic_test/',2020]);
+
+    // this.routers.url 可以拿到当前的路由；
+    // 等价于 this.location.path()；
+
+    // this.routers.url = /basic/19047/basic_test/2022
     this.routers.navigate(['basic',19047,'basic_test',2022]);
   }
 

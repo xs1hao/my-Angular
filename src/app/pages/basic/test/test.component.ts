@@ -23,7 +23,7 @@ export class TestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('userId');
+    const id = this.route.snapshot.paramMap.get('idS');
     console.log('ids:',id);
   }
 
