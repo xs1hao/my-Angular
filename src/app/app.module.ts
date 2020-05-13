@@ -19,6 +19,7 @@ import { environment } from 'src/environments/environment';
 import { BasicPracticeModule } from './pages/basic/basic.module';
 import { SharedModule } from './shared/shared.module';
 import { RequestCacheWithMap, RequestCache } from './request-cache.service';
+import { EventEmitService } from './shared/core/eventEmit/eventEmit.service';
 
 registerLocaleData(zh);
 
@@ -52,6 +53,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
     { provide: RequestCache, useClass: RequestCacheWithMap },//拦截器
+    // EventEmitService
   ],
   bootstrap: [AppComponent]
 })

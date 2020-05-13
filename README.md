@@ -39,4 +39,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 npm install angular-in-memory-web-api --save
 
 #### icon-font 使用
-注意 要更新5个文件。
+注意 要更新5个文件；从阿里图标库下载下来的文件中，需要的文件 .eot .svg .ttf .woff 已经iconfont.css 注意： .css文件里面有部分引用路径需要修改。
+
+#### 全局广播事件
+服务需要在sharedModule的provides中注册。

@@ -4,14 +4,37 @@
     <div class="m-10" [class.special]="isSpecial">Special</div>
     <div class="m-10" [style.color]="isSpecial ? 'red' : 'green'">Special</div>
 
-    <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">组件内部子路由</button>
-    <button [routerLink]="['/basic/'+userId]" (click)="showParent = true">返回</button>
-    
+    <!-- <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">
+        组件内部子路由
+    </button> -->
+
+    <button (click)="toChildConponents()">
+        组件内部子路由
+    </button>
+
+    <!-- <button [routerLink]="['/basic/'+userId]" (click)="showParent = true">
+        返回
+    </button> -->
+    <button  (click)="backParentRouter()">
+        返回
+    </button>
 
     <div *ngIf="showParent" style="margin-top: 10px;">
-        <button (click)="getConfigJson()">getConfigJson</button>
-        ➟使用模拟服务器，读取json文件内容 <span class="red-f">❤</span>
+        <button (click)="getConfigJson()">
+            getConfigJson
+        </button>
+        <i class="iconfont icon-V"></i>
+        使用模拟服务器，读取json文件内容 
+        <span class="red-f">❤</span>
         <app-code-toggle [imgId]="5"></app-code-toggle>
+        <span>
+            点击
+            <em class="red-f">
+                <i class="iconfont icon-jiantou-copy"></i>
+            </em>
+            <button>组件内部子路由</button>按钮，广播事件
+        </span>
+        <app-code-toggle [imgId]="6"></app-code-toggle>
         <p>$any()方法测试</p>
         <!-- <p>能不能展示哩？？ {{basicObj.bestByDate}}</p> -->
         <!-- <p>能不能展示哩？？ {{$any(basicObj).bestByDate}}</p> -->
@@ -19,11 +42,12 @@
         <p>安全导航运算符---能不能展示哩？？ {{basicObj?.bestByDate}}</p>
         <p>非空断言 ！ </p>
         <!-- <p>非空断言---能不能展示哩？？ {{basicObj!.bestByDate}}</p> -->
-    
+
         ------input--------
-        
+
         <div style="background-color: #d8dddd;">
-            <input class="input" type="text" #input (keyup)="onKey(input.value,$event)" (keyup.enter)="onEnter(input.value)">
+            <input class="input" type="text" #input (keyup)="onKey(input.value,$event)"
+                (keyup.enter)="onEnter(input.value)">
             <p>在上面的input框中输入了（使用模板变量获取输入内容）：{{inputValues}}</p>
             <h4>管道的两种实现形式</h4>
             <a href="https://www.jianshu.com/p/64a9012cb1fb">网络地址(angular中使用pipe管道过滤结果集)</a>
@@ -45,8 +69,7 @@
                 </div>
             </div>
         </div>
-    
-    
+        
         <h4>测试ngFor，限定循环长度...</h4>
         <div *ngFor="let item of mockDatas;index as labelIndex">
             <div *ngIf="labelIndex <2">
@@ -59,7 +82,7 @@
                 <span>{{items.name}}</span>
             </div>
         </div>
-    
+
         <!-- form表单 -->
         ------------------form---------------------
         <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
@@ -77,13 +100,13 @@
             </div>
             <button ng-button naType="dafault" type="submit">购买</button>
         </form>
-    
+
         <div class="ng-ul m-10">
             <ul>
                 <li *ngFor="let item of mockData">{{item.name}}</li>
             </ul>
         </div>
-    
+
         <app-svg></app-svg>
         <!-- 测试公共组件 -->
         <app-test></app-test>

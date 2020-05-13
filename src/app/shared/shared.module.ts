@@ -8,6 +8,7 @@ import { TestComponent } from './components/test/test.component';
 import { CodeToggleComponent } from './components/code-toggle/code-toggle.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ClickoutsideDirective } from './core/directives/clickoutside.directive';
+import { EventEmitService } from './core/eventEmit/eventEmit.service';
 
 @NgModule({
     declarations:[
@@ -30,6 +31,9 @@ import { ClickoutsideDirective } from './core/directives/clickoutside.directive'
         FilterComponent,
         CodeToggleComponent,
         ClickoutsideDirective
+    ],
+    providers: [
+        EventEmitService
     ]
 })
 export class SharedModule{}
