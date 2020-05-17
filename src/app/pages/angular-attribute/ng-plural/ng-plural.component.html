@@ -1,0 +1,21 @@
+<p class="red-f">
+    [NgPlural]
+</p>
+<app-select [options]="options" (selectOption)="goRelatedApi($event)" [placeHolder]="'切换模板'"></app-select>
+
+
+<div class="m-t-10" [ngPlural]="category">
+    <ng-template ngPluralCase="=issue">这是问题模板</ng-template>
+    <ng-template ngPluralCase="=req">
+        <span>
+            这是需求模板
+        </span>
+        <ng-container *ngTemplateOutlet="req"></ng-container>
+    </ng-template>
+    <ng-template ngPluralCase="=workitem">这是工作项模板</ng-template>
+    <ng-template ngPluralCase="other">这是其他 {{category}} 模板</ng-template>
+</div>
+
+<ng-template #req>
+    <div class="text-default">德玛西亚在需求模板中</div>
+</ng-template>

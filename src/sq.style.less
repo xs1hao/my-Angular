@@ -11,7 +11,9 @@
     color    : red;
     font-weight: 600;
 }
-
+.text-default{
+    color: #23c6c8;
+}
 .test {
     color           : black;
     background-color: #29ddd9;
@@ -59,8 +61,35 @@
         }
     }
 }
+.m-{
+    &r{
+        &-5{
+            margin-right: 5px;
+        }
+        &-10{
+            margin-right: 10px;
+        }
+    }
+}
+
+.m-{
+    &t{
+        &-5{
+            margin-top: 5px;
+        }
+        &-10{
+            margin-top: 10px;
+        }
+    }
+}
+
 .code{
     border: 1px dashed;
     margin: 10px 0;
     cursor: pointer;
+}
+// 弹性布局相关
+
+.flex-box{
+    display: flex;
 }

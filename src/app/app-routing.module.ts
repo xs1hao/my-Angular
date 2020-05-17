@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BasicAngularComponent } from './pages/basic/basic.component';
 import { TestComponent } from './pages/basic/test/test.component';
+import { AngularAttributeComponent } from './pages/angular-attribute/angular-attribute.component';
+import { NgPluralComponent } from './pages/angular-attribute/ng-plural/ng-plural.component';
+import { NgComponentOutletComponent } from './pages/angular-attribute/ng-component-outlet/ng-component-outlet.component';
+import { RouterComponent } from './pages/angular-attribute/router/router.component';
+import { ChildRouterComponent } from './pages/angular-attribute/router/child-router/child-router.component';
 
 const routes: Routes = [
   {
@@ -27,6 +32,17 @@ const routes: Routes = [
       { path: 'basic_test/:idS', component: TestComponent}
     ]
     // loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
+  },
+  {
+    path: 'angular-attr',
+    component: AngularAttributeComponent,
+      children: [
+        {path: 'NgPlural', component: NgPluralComponent},
+        {path: 'NgComponentOutlet', component: NgComponentOutletComponent},
+        {path: 'Router', component: RouterComponent, children : [
+          {path: 'child', component: ChildRouterComponent}
+        ]}
+      ]
   },
   {
     path: 'workdemo',

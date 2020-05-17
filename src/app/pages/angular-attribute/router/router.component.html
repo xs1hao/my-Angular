@@ -1,0 +1,15 @@
+<div>
+    <p class="red-f">
+        [Router]
+    </p>
+    <a href="https://www.jianshu.com/p/7488f6fd505b">路由案例</a>---参考链接
+    <app-code-toggle [imgId]="7"></app-code-toggle>
+    
+    <!-- 方式一 -->
+    <!-- <button [routerLink]="['./child']">跳转至子组件</button> -->
+    
+    <!-- 跳转方式二 -->
+    <button (click)="changeRouter()">跳转至子组件</button>
+    
+    <router-outlet></router-outlet>
+</div>

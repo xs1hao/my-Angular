@@ -4,13 +4,13 @@
     <div class="m-10" [class.special]="isSpecial">Special</div>
     <div class="m-10" [style.color]="isSpecial ? 'red' : 'green'">Special</div>
 
-    <!-- <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">
+    <button [routerLink]="['./basic_test/'+2020]" (click)="showParent = false">
+        组件内部子路由-routerLink
+    </button>
+
+    <!-- <button (click)="toChildConponents()">
         组件内部子路由
     </button> -->
-
-    <button (click)="toChildConponents()">
-        组件内部子路由
-    </button>
 
     <!-- <button [routerLink]="['/basic/'+userId]" (click)="showParent = true">
         返回

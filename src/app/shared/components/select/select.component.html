@@ -1,0 +1,6 @@
+<nz-select nzShowSearch nzAllowClear nzPlaceHolder="{{placeHolder}}" [(ngModel)]="selectedValue"
+    (ngModelChange)=goRelatedApi($event)>
+    <ng-container *ngFor="let option of options">
+        <nz-option nzLabel="{{option}}" nzValue="{{option}}"></nz-option>
+    </ng-container>
+</nz-select>
