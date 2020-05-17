@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class AngularAttributeComponent implements OnInit {
 
   selectedValue = null;
+  showImg = false;
   options = [];
   constructor(
     private router: Router,
@@ -19,7 +20,9 @@ export class AngularAttributeComponent implements OnInit {
     this.options = [
       'NgPlural',
       'NgComponentOutlet',
-      'Router'
+      'Router',
+      'innerHtml',
+      'elementRef'
     ]
   }
 
@@ -30,5 +33,8 @@ export class AngularAttributeComponent implements OnInit {
     }
   }
 
+  toggle() {
+    this.showImg = !this.showImg;
+  }
 
 }

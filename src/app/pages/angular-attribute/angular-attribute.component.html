@@ -1,11 +1,19 @@
 <p class="red-f">
     这里主要是呈现Angular的API案例
 </p>
+<a href="https://www.cnblogs.com/wangzhichao/p/8716153.html">angular与angularjs常用指令的不同写法整理</a>
+<a href="https://www.cnblogs.com/zzy-run-92/p/9396756.html">Angular 模板 (Templates)</a>
 <div class="flex-box">
     <p class="m-r-10">请选择想要的API</p>
     <app-select [options]="options" (selectOption)="goRelatedApi($event)" [placeHolder]="'请选择API...'"></app-select>
 
 </div>
+<button nz-button nzType="default" (click)="toggle()">相关图件</button>
+<div *ngIf="showImg">
+    <app-code-toggle [imgId]="8"></app-code-toggle>
+    <app-code-toggle [imgId]="9"></app-code-toggle>
+</div>
+
 <div class="child">
     <router-outlet></router-outlet>
 </div>

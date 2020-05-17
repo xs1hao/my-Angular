@@ -7,6 +7,8 @@ import { NgPluralComponent } from './pages/angular-attribute/ng-plural/ng-plural
 import { NgComponentOutletComponent } from './pages/angular-attribute/ng-component-outlet/ng-component-outlet.component';
 import { RouterComponent } from './pages/angular-attribute/router/router.component';
 import { ChildRouterComponent } from './pages/angular-attribute/router/child-router/child-router.component';
+import { InnerHtmlComponent } from './pages/angular-attribute/inner-html/inner-html.component';
+import { ElementRefComponent } from './pages/angular-attribute/element-ref/element-ref.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,8 @@ const routes: Routes = [
       children: [
         {path: 'NgPlural', component: NgPluralComponent},
         {path: 'NgComponentOutlet', component: NgComponentOutletComponent},
+        {path: 'innerHtml', component: InnerHtmlComponent},
+        {path: 'elementRef', component: ElementRefComponent},
         {path: 'Router', component: RouterComponent, children : [
           {path: 'child', component: ChildRouterComponent}
         ]}
