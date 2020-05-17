@@ -10,6 +10,8 @@ import { FilterComponent } from './components/filter/filter.component';
 import { ClickoutsideDirective } from './core/directives/clickoutside.directive';
 import { EventEmitService } from './core/eventEmit/eventEmit.service';
 import { SelectComponent } from './components/select/select.component';
+import { HtmlPipe } from './core/pipes/html-piple';
+import { Constant } from './core/utlis/constant';
 
 @NgModule({
     declarations:[
@@ -19,7 +21,8 @@ import { SelectComponent } from './components/select/select.component';
         FilterComponent,
         CodeToggleComponent,
         ClickoutsideDirective,
-        SelectComponent
+        SelectComponent,
+        HtmlPipe
     ],
     imports:[
         CommonModule,
@@ -34,7 +37,8 @@ import { SelectComponent } from './components/select/select.component';
         SelectComponent,
         FilterComponent,
         CodeToggleComponent,
-        ClickoutsideDirective
+        ClickoutsideDirective,
+        HtmlPipe
     ],
     providers: [
         EventEmitService
