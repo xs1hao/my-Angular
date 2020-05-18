@@ -1,0 +1,42 @@
+<div cdkDropListGroup class="todo__component-container">
+
+  <div cdkDropList id="todo__list" class="list-container" [cdkDropListData]="todoList" (cdkDropListDropped)="drop($event)">
+    <h2 class="list__title">TODO</h2>
+    <div cdkDrag class="list__item" [cdkDragData]="todoItem" *ngFor="let todoItem of todoList">{{todoItem}}</div>
+  </div>
+
+  <div cdkDropList id="done__list" class="list-container" [cdkDropListData]="doneList" (cdkDropListDropped)="drop($event)">
+    <h2 class="list__title">Done</h2>
+    <ng-container *ngFor="let doneItem of doneList">
+      <div cdkDrag [cdkDragData]="doneItem">
+        <span (click)="dianjile(doneItem)">{{doneItem}}</span>
+        <i class="iconfont icon-yidong" style="color: black;margin-right: 20px;font-size: 20px;"></i>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<div>
+
+ <div class="cont">
+  <div id='req'>
+    <p>req</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+  </div>
+  <div id='workload'>
+    <p>workload</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+  </div>
+  <div id='comment'>
+    <p>comment</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque, fugit? Ex modi blanditiis exercitationem? Aliquid, nemo reiciendis ipsum sapiente itaque odit dignissimos fugit et tempora nisi atque quia aliquam id?</p>
+  </div>
+ </div>
+</div>
+

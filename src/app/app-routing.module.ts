@@ -9,6 +9,9 @@ import { InnerHtmlComponent } from './pages/angular-api/inner-html/inner-html.co
 import { ElementRefComponent } from './pages/angular-api/element-ref/element-ref.component';
 import { ChildRouterComponent } from './pages/angular-api/router/child-router/child-router.component';
 import { RouterComponent } from './pages/angular-api/router/router.component';
+import { AngularWorksComponent } from './pages/angular-works/angular-works.component';
+import { pathToFileURL } from 'url';
+import { DragDropComponent } from './pages/angular-works/drag-drop/drag-drop.component';
 
 const routes: Routes = [
   {
@@ -36,19 +39,26 @@ const routes: Routes = [
     // loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
   },
   {
-    path: 'angular-attr',
+    path: 'angular-attr',//angular API
     component: AngularAttributeComponent,
       children: [
         {path: 'NgPlural', component: NgPluralComponent},
         {path: 'NgComponentOutlet', component: NgComponentOutletComponent},
         {path: 'innerHtml', component: InnerHtmlComponent},
         {path: 'elementRef', component: ElementRefComponent},
-        {path: 'Router', component: RouterComponent, 
+        {path: 'Router', component: RouterComponent,
           children : [
             {path: 'child', component: ChildRouterComponent}
           ]
         }
       ]
+  },
+  {
+    path: 'angular-works',//angular案例
+    component: AngularWorksComponent,
+    children: [
+      {path: 'DragDropModule', component: DragDropComponent}
+    ]
   },
   {
     path: 'workdemo',
