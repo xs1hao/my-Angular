@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BasicAngularComponent } from './pages/basic/basic.component';
 import { TestComponent } from './pages/basic/test/test.component';
-import { AngularAttributeComponent } from './pages/angular-attribute/angular-attribute.component';
-import { NgPluralComponent } from './pages/angular-attribute/ng-plural/ng-plural.component';
-import { NgComponentOutletComponent } from './pages/angular-attribute/ng-component-outlet/ng-component-outlet.component';
-import { RouterComponent } from './pages/angular-attribute/router/router.component';
-import { ChildRouterComponent } from './pages/angular-attribute/router/child-router/child-router.component';
-import { InnerHtmlComponent } from './pages/angular-attribute/inner-html/inner-html.component';
-import { ElementRefComponent } from './pages/angular-attribute/element-ref/element-ref.component';
+import { AngularAttributeComponent } from './pages/angular-api/angular-attribute.component';
+import { NgPluralComponent } from './pages/angular-api/ng-plural/ng-plural.component';
+import { NgComponentOutletComponent } from './pages/angular-api/ng-component-outlet/ng-component-outlet.component';
+import { InnerHtmlComponent } from './pages/angular-api/inner-html/inner-html.component';
+import { ElementRefComponent } from './pages/angular-api/element-ref/element-ref.component';
+import { ChildRouterComponent } from './pages/angular-api/router/child-router/child-router.component';
+import { RouterComponent } from './pages/angular-api/router/router.component';
 
 const routes: Routes = [
   {
@@ -43,9 +43,11 @@ const routes: Routes = [
         {path: 'NgComponentOutlet', component: NgComponentOutletComponent},
         {path: 'innerHtml', component: InnerHtmlComponent},
         {path: 'elementRef', component: ElementRefComponent},
-        {path: 'Router', component: RouterComponent, children : [
-          {path: 'child', component: ChildRouterComponent}
-        ]}
+        {path: 'Router', component: RouterComponent, 
+          children : [
+            {path: 'child', component: ChildRouterComponent}
+          ]
+        }
       ]
   },
   {
