@@ -1,4 +1,33 @@
+<style>
+  #innderHtml.inneritem {
+    width: 100px;
+    height: 50px;
+    color: red;
+    border: 1px solid #23c6c8;
+    transition: all 0.4s ease-in-out 0s;
+  }
+  #innderHtml {
+    width: 100px;
+    height: 50px;
+    border: 1px solid transparent;
+  }
+  /* 动画过渡 */
+  /* 动画效果
+    all：所有属性都将获得过渡效果
+    0.4s：完成过渡效果需要花费的时间
+    ease-in-out：规定以慢速开始和结束的过渡效果
+    0s：规定过渡效果何时开始
+*/
+  /*  #innderHtml.inneritem {
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    -o-transition: all 0.4s ease-in-out 0s;
+    -ms-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+   } */
+</style>
 <div class="inner">
-    <p class="text-default">内部文件</p>
-    <a href="https://www.jianshu.com/p/7488f6fd505b">路由案例</a>
+  <p class="text-default" id="innderHtml">内部文件</p>
+  <button nz-button nzType="primary" (click)="addClass()">添加Class</button>
+  <a href="https://www.jianshu.com/p/7488f6fd505b" target="blank">路由案例</a>
 </div>

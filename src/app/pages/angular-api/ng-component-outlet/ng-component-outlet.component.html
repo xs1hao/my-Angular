@@ -1,6 +1,11 @@
 <p class="red-f">
     [NgComponentOutlet]
 </p>
+<h3>通过angular的官方API实现了组件的动态加载</h3>
+
+<ng-container *ngFor="let item of template">
+  <ng-container *ngComponentOutlet="item;injector: myInjector; "></ng-container>
+</ng-container>
 
 <ng-container *ngComponentOutlet="TestComponent"></ng-container>
 <ng-container *ngComponentOutlet="innerTemplate"></ng-container>

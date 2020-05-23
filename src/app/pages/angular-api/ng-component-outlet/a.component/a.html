@@ -1,0 +1,18 @@
+<p>
+  我在A页面中
+</p>
+
+
+<a nz-dropdown [nzDropdownMenu]="menu">
+    A组件中
+  <i class="iconfont icon-xiajiantou"></i>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <!-- 可以直接拿类上面的值 -->
+    <!-- <li nz-menu-item *ngFor="let item of greeter.data"> -->
+    <li nz-menu-item *ngFor="let item of dataFromIndex">
+      {{item}}
+    </li>
+  </ul>
+</nz-dropdown-menu>

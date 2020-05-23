@@ -5,11 +5,14 @@ import { AngularAttributeComponent } from './angular-attribute.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgComponentOutletComponent } from './ng-component-outlet/ng-component-outlet.component';
+import { NgComponentOutletComponent, innerTemplate } from './ng-component-outlet/ng-component-outlet.component';
 import { RouterComponent } from './router/router.component';
 import { ChildRouterComponent } from './router/child-router/child-router.component';
 import { InnerHtmlComponent } from './inner-html/inner-html.component';
 import { ElementRefComponent } from './element-ref/element-ref.component';
+import { NzDropDownModule } from 'ng-zorro-antd';
+import { Acomponent } from './ng-component-outlet/a.component/a';
+import { Bcomponent } from './ng-component-outlet/b.component/b';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,17 @@ import { ElementRefComponent } from './element-ref/element-ref.component';
     RouterComponent,
     ChildRouterComponent,
     InnerHtmlComponent,
-    ElementRefComponent
+    ElementRefComponent,
+    // 如果要使用zorro 就要在module里面引入
+    Acomponent,
+    Bcomponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    NzDropDownModule
   ]
 })
 export class AngularAttributeModule { }

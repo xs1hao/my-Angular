@@ -1,0 +1,32 @@
+<style>
+  .b-component{
+    margin: 20px 0;
+  }
+</style>
+<div class="b-component">
+  <p>
+    我在B页面中
+  </p>
+
+  <span class="red-f">
+    {{dataRes}}
+  </span>
+
+  <ul>
+    <li *ngFor="let item of dataInBcomponent" (click)="conDataInBcompoent(item)">
+      {{item}}
+    </li>
+  </ul>
+
+  <a nz-dropdown [nzDropdownMenu]="menu">
+    B组件中
+    <i class="iconfont icon-xiajiantou"></i>
+  </a>
+  <nz-dropdown-menu #menu="nzDropdownMenu">
+    <ul nz-menu nzSelectable>
+      <li nz-menu-item *ngFor="let item of dataInBcomponent">
+        {{item}}
+      </li>
+    </ul>
+  </nz-dropdown-menu>
+</div>
