@@ -4,11 +4,12 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=4201",
-    "build": "ng build",
+    "build": "ng build --prod --output-hashing none",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "sq": "ng run my-app:sq"
+    "sq": "ng run my-app:sq",
+    "config": "webpack --config webpack.config.js"
   },
   "private": true,
   "dependencies": {
@@ -52,6 +53,7 @@
     "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
-    "typescript": "~3.7.5"
+    "typescript": "~3.7.5",
+    "webpack-cli": "^3.3.11"
   }
 }

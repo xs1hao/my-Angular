@@ -6,8 +6,8 @@
 <div class="flex-box">
     <p class="m-r-10">请选择想要的API</p>
     <app-select [options]="options" (selectOption)="goRelatedApi($event)" [placeHolder]="'请选择API...'"></app-select>
-
 </div>
+<button (click)="destrotRouter()">路由销毁</button>
 <button nz-button nzType="default" (click)="toggle()">相关图件</button>
 <div *ngIf="showImg">
     <app-code-toggle [imgId]="8"></app-code-toggle>

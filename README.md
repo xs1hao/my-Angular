@@ -43,3 +43,9 @@ npm install angular-in-memory-web-api --save
 
 #### 全局广播事件
 服务需要在sharedModule的provides中注册。
+
+##### ng -help
+https://www.jianshu.com/p/65a7f2b0264e
+
+#### Tsconfig.json相关配置说明
+https://www.cnblogs.com/cczlovexw/p/11527708.html#autoid-0-0-0

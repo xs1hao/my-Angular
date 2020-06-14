@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,8 +46,8 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     StoreModule.forRoot({}, { metaReducers }),
     // 该应用代码并不需要数据服务器。 它基于 Angular in-memory-web-api 库，该库会替换 HttpClient 模块中的 HttpBackend。用于替换的这个服务会模拟 REST 风格的后端的行为。到 AppModule 的 imports 中查看这个库是如何配置的。
     HttpClientInMemoryWebApiModule.forRoot(//forRoot() 配置方法接收一个 InMemoryDataService 类来初始化内存数据库。
-        InMemoryDataService, 
-        { 
+        InMemoryDataService,
+        {
           dataEncapsulation: false,
           passThruUnknownUrl: true, //true (default) should NOT return the item (204) after a POST. false: return the item (200).
           put204: false // return entity after PUT/update
@@ -55,6 +56,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: RequestCache, useClass: RequestCacheWithMap },//拦截器
     // EventEmitService
   ],
