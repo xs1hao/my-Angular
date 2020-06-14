@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Constant } from 'src/app/shared/core/utlis/constant';
 
 @Component({
@@ -14,7 +14,9 @@ export class InnerHtmlComponent implements OnInit {
 
   constructor(
     private constant: Constant
-  ) { }
+  ) {
+    console.log('NzZone.isInAngularZone():', NgZone.isInAngularZone());
+   }
 
   // 动态获取模板
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class InnerHtmlComponent implements OnInit {
   }
 
   formatContent(name) {
-    const content = 
+    const content =
             `<div>
               <span class="text-default">${name}</span>
               <p style="font-size:10px;color:red">取消</p>
@@ -37,7 +39,7 @@ export class InnerHtmlComponent implements OnInit {
     return content;
   }
 
-  // 
+  //
   setEvent() {
     const button = document.getElementById('sqButton');
     if(button) {

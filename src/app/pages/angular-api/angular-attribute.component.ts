@@ -27,7 +27,8 @@ export class AngularAttributeComponent implements OnInit {
       'NgComponentOutlet',
       'Router',
       'innerHtml',
-      'elementRef'
+      'elementRef',
+      'function'
     ]
     // console.log('this.router:',this.router);
     this.routerChange = this.router.events

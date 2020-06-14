@@ -1,0 +1,18 @@
+<p class="red-f">
+  FUNCTION
+</p>
+<p>API说明：FUNCTION是angular自带的方法，可以直接引入使用</p>
+
+<div class="content">
+  <div class="currency">
+    获取货币种类 getLocaleCurrencyName()： <span class="red-f">{{loclaCurrencyName}}</span>
+  </div>
+</div>
+
+<h2>Demo: NgZone</h2>
+
+<p>Progress: {{progress}}%</p>
+<p *ngIf="progress >= 100">Done processing {{label}} of Angular zone!</p>
+
+<button (click)="processWithinAngularZone()">Process within Angular zone</button>
+<button (click)="processOutsideOfAngularZone()">Process outside of Angular zone</button>

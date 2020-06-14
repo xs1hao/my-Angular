@@ -12,6 +12,7 @@ import { RouterComponent } from './pages/angular-api/router/router.component';
 import { AngularWorksComponent } from './pages/angular-works/angular-works.component';
 import { pathToFileURL } from 'url';
 import { DragDropComponent } from './pages/angular-works/drag-drop/drag-drop.component';
+import { FunctionComponent } from './pages/angular-api/function/function.component';
 
 const routes: Routes = [
   {
@@ -50,7 +51,8 @@ const routes: Routes = [
           children : [
             {path: 'child', component: ChildRouterComponent}
           ]
-        }
+        },
+        {path: 'function', component: FunctionComponent}
       ]
   },
   {

@@ -13,6 +13,7 @@ import { ElementRefComponent } from './element-ref/element-ref.component';
 import { NzDropDownModule } from 'ng-zorro-antd';
 import { Acomponent } from './ng-component-outlet/a.component/a';
 import { Bcomponent } from './ng-component-outlet/b.component/b';
+import { FunctionComponent } from './function/function.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { Bcomponent } from './ng-component-outlet/b.component/b';
     ElementRefComponent,
     // 如果要使用zorro 就要在module里面引入
     Acomponent,
-    Bcomponent
+    Bcomponent,
+    FunctionComponent
   ],
   imports: [
     CommonModule,
