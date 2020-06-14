@@ -1,21 +1,106 @@
 <p class="red-f">
-    [NgPlural]
+  [NgPlural]
 </p>
-<app-select [options]="options" (selectOption)="goRelatedApi($event)" [placeHolder]="'切换模板'"></app-select>
+<p>API说明：一个div下可以根据枚举值使用不同的模板，同一个类型下，使用ngPlural属性，设置不一样的模板</p>
 
+<app-select
+  [options]="options"
+  (selectOption)="goRelatedApi($event)"
+  [placeHolder]="'切换模板'"
+></app-select>
 
 <div class="m-t-10" [ngPlural]="category">
-    <ng-template ngPluralCase="=issue">这是问题模板</ng-template>
-    <ng-template ngPluralCase="=req">
-        <span>
-            这是需求模板
-        </span>
-        <ng-container *ngTemplateOutlet="req"></ng-container>
-    </ng-template>
-    <ng-template ngPluralCase="=workitem">这是工作项模板</ng-template>
-    <ng-template ngPluralCase="other">这是其他 {{category}} 模板</ng-template>
+  <ng-template ngPluralCase="issue">这是问题模板</ng-template>
+  <ng-template ngPluralCase="req">
+    <span>这是需求模板</span>
+    <ng-container *ngTemplateOutlet="req"></ng-container>
+  </ng-template>
+  <ng-template ngPluralCase="workitem">这是工作项模板</ng-template>
+  <ng-template ngPluralCase="other">这是其他 {{ category }} 模板</ng-template>
+</div>
+
+<div class="vision-mock">
+  <h3>
+    模拟Vision需求、问题和工作项循环模板--测试，根据不同的类型使用不同的模板
+  </h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <ng-container *ngFor="let item of theadConfig">
+          <th [ngStyle]="item.style">{{ item.title }}</th>
+        </ng-container>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 表格行数据循环 -->
+      <tr *ngFor="let item of mockData">
+        <!-- 表格列数据循环 -->
+        <ng-container *ngFor="let config of theadConfig">
+          <!-- key: category/mainInfo/status/current_owners -->
+          <ng-container [ngSwitch]="config.key">
+            <!-- <td *ngSwitchCase="'category'">{{item.category}}</td> -->
+            <ng-container *ngSwitchCase="'category'">
+              <!-- 同一个类型下，使用ngPlural属性，设置不一样的模板 -->
+              <ng-container [ngPlural]="item.category">
+                <ng-template ngPluralCase="01001001">
+                  <td style="color: red;">{{item.category}}</td>
+                </ng-template>
+                <ng-template ngPluralCase="01001002">
+                  <td style="color: blue;">{{item.category}}</td>
+                </ng-template>
+                <ng-template ngPluralCase="01001003">
+                  <td style="color: #23c6c8;">{{item.category}}</td>
+                </ng-template>
+              </ng-container>
+            </ng-container>
+            <td *ngSwitchCase="'mainInfo'">
+              <!-- 根据类型，展示不一样的主要信息 -->
+              <ng-container [ngPlural]="item.category">
+                <ng-template ngPluralCase="01001001">
+                  <!-- 需求展示title和number -->
+                    <div class="mainInfo">
+                      <p class="title">{{item.title}}</p>
+                      <div class="text-default">
+                        <span>{{item.number}}</span>
+                      </div>
+                    </div>
+                </ng-template>
+                <ng-template ngPluralCase="01001002">
+                  <!-- 问题展示title和assigned_domain -->
+                    <div class="mainInfo">
+                      <p class="title">{{item.title}}</p>
+                      <div class="text-default">
+                        <span>{{item.assigned_domain}}</span>
+                      </div>
+                    </div>
+                </ng-template>
+                <ng-template ngPluralCase="01001003">
+                  <span style="color: #23c6c8;">{{item.title}}</span>
+                </ng-template>
+              </ng-container>
+            </td>
+            <td *ngSwitchCase="'status'">{{ item.status }}</td>
+            <td *ngSwitchCase="'current_owners'">
+              {{ item.current_owners[0].name }}
+            </td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 <ng-template #req>
-    <div class="text-default">德玛西亚在需求模板中</div>
+  <div class="text-default">德玛西亚在需求模板中</div>
+</ng-template>
+
+<ng-template #text>
+  <div class="text-default" (click)="toggleClass()" id="text">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil aliquam
+      odit necessitatibus in, quod debitis! Quas perferendis nihil, obcaecati
+      reiciendis voluptatum alias doloribus ad qui accusamus sed commodi labore
+      consectetur?
+    </p>
+  </div>
 </ng-template>
