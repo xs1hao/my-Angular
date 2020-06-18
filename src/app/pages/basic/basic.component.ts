@@ -36,13 +36,13 @@ export class BasicAngularComponent implements OnInit {
     private location: Location,
     private configService: ConfigService,
     private eventEmitService: EventEmitService
-  ) { 
+  ) {
     this.isSpecial = true;
     this.checkoutForm = this.formBuilder.group({
       name: '',
       address: ''
     });
-    
+
     /**
      * 下面两种写法都能实现；
      * 一个使用了自定义类上面的方法；
@@ -76,7 +76,7 @@ export class BasicAngularComponent implements OnInit {
   back() {
     this.location.back();
   }
-  // input框输入属性 
+  // input框输入属性
   onKey(value: string, eve: KeyboardEvent) {
     this.inputValues = value;
     if(value == "" && eve.keyCode == 8){
@@ -107,7 +107,7 @@ export class BasicAngularComponent implements OnInit {
     const curUrl = this.routers.url;
     // this.location.go('/basic','19047'); // http://localhost:4201/basic?19047
     // const url = `/basic/${19048}`
-    // this.location.go(url); 
+    // this.location.go(url);
 
 
     this.routers.navigate(['/basic',19047]);
@@ -123,6 +123,10 @@ export class BasicAngularComponent implements OnInit {
 
     // this.routers.url = /basic/19047/basic_test/2022
     this.routers.navigate(['basic',19047,'basic_test',2022]);
+  }
+
+  double(data){
+     return data+' ngx-pipe-function';
   }
 
 }

@@ -49,3 +49,6 @@ https://www.jianshu.com/p/65a7f2b0264e
 
 #### Tsconfig.json相关配置说明
 https://www.cnblogs.com/cczlovexw/p/11527708.html#autoid-0-0-0
+
+#### Angular中很多在angularJs中使用的方法都Angular都不提供了
+安装使用第三方插件  ngx-pipe-function；ngx-order-pipe；ngx-filter-pipe

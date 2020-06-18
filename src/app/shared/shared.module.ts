@@ -11,7 +11,7 @@ import { ClickoutsideDirective } from './core/directives/clickoutside.directive'
 import { EventEmitService } from './core/eventEmit/eventEmit.service';
 import { SelectComponent } from './components/select/select.component';
 import { HtmlPipe } from './core/pipes/html-piple';
-import { Constant } from './core/utlis/constant';
+// import { OrderByPipe } from './core/pipes/order-by.pipe';
 
 @NgModule({
     declarations:[
@@ -22,7 +22,8 @@ import { Constant } from './core/utlis/constant';
         CodeToggleComponent,
         ClickoutsideDirective,
         SelectComponent,
-        HtmlPipe
+        HtmlPipe,
+        // OrderByPipe
     ],
     imports:[
         CommonModule,
@@ -38,7 +39,8 @@ import { Constant } from './core/utlis/constant';
         FilterComponent,
         CodeToggleComponent,
         ClickoutsideDirective,
-        HtmlPipe
+        HtmlPipe,
+        // OrderByPipe
     ],
     providers: [
         EventEmitService

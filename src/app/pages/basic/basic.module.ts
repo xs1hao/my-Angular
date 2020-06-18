@@ -8,6 +8,8 @@ import { SvgComponent } from './svg/svg.component';
 import { FilterPipe } from 'src/app/shared/core/pipes/filter-search.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TestComponent } from './test/test.component';
+import { OrderModule } from 'ngx-order-pipe';
+import { NgxPipeFunctionModule } from 'ngx-pipe-function';
 
 @NgModule({
     declarations: [
@@ -22,7 +24,9 @@ import { TestComponent } from './test/test.component';
         FormsModule,
         BasicPracticeRoutingModule,
         SharedModule,
+        OrderModule,
         NgZorroAntdModule,
+        NgxPipeFunctionModule
     ],
     exports: [
         SvgComponent,

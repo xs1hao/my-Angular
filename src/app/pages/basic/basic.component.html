@@ -24,7 +24,7 @@
             getConfigJson
         </button>
         <i class="iconfont icon-V"></i>
-        使用模拟服务器，读取json文件内容 
+        使用模拟服务器，读取json文件内容
         <span class="red-f">❤</span>
         <app-code-toggle [imgId]="5"></app-code-toggle>
         <span>
@@ -69,19 +69,23 @@
                 </div>
             </div>
         </div>
-        
-        <h4>测试ngFor，限定循环长度...</h4>
-        <div *ngFor="let item of mockDatas;index as labelIndex">
-            <div *ngIf="labelIndex <2">
-                <span>{{item.name}}</span>
-            </div>
-        </div>
-        <hr>
-        <div *ngIf="mockDatas.length > 2">
-            <div *ngFor="let items of mockDatas.slice(2)">
+
+        <h4 class="red-f">使用自定义管道将循环数组精选排序...</h4>
+        <h4 class="red-f">使用ngx-order-pipe 也有同样的效果...</h4>
+        <ng-container *ngIf="mockData">
+          <div *ngFor="let item of mockData | orderBy : 'id';index as labelIndex">
+            <span [class]="{'red-f':item.id == 35}">{{item.name | pipeFunction: double }}</span>
+          </div>
+
+        <!-- <h4>测试ngFor，限定循环长度...</h4> -->
+        <!-- <div *ngIf="mockData.length > 2">
+            <div *ngFor="let items of mockData.slice(2)">
                 <span>{{items.name}}</span>
             </div>
-        </div>
+          </div> -->
+        </ng-container>
+        <hr>
+
 
         <!-- form表单 -->
         ------------------form---------------------
