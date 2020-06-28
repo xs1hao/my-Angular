@@ -6,6 +6,7 @@
         <button nz-button nzType="default" #dot (click)="callChildComponent()">调用子组件的方法</button>
         <em *ngIf="disabledBtnView" class="red-f m-l-5">啊，我不能点击了~~</em>
     </div>
+    <button (click)="changeDataToChild()">ngOnChanges生命周期触发</button>
     <app-code-toggle [imgId]="1"></app-code-toggle>
 
     <div class="btn-des">
@@ -28,7 +29,7 @@
         <br>
         <input type="text" class="input" [(ngModel)]="str" />
     </div>
-    <app-child [(child)]="str"></app-child>
+    <app-child [(child)]="str" [dataToChild]="dataToChild"></app-child>
     <app-button [item]="$any(str)" [data]="objdata" (con)="confn($event)" #btn></app-button>
     <div style="border: 1px solid;">
         <p (click)="toggle()" class="cursor-point">使用公共组件（轮播图）,配置了全局样式<em class="red-f">点我一下看轮播图</em></p>

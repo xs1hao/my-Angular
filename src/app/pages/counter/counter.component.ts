@@ -25,7 +25,7 @@ export class CounterComponent implements OnInit {
 
   constructor(
     private commonutils: CommonUtils,
-    // 最开始的方式，这个也可以 
+    // 最开始的方式，这个也可以
     private store$: Store<object>,
     // 2020年4月7日00:20:08 现在是用这个方法获取值
     private counterSelectors: CounterSelectors
@@ -49,7 +49,7 @@ export class CounterComponent implements OnInit {
     })
 
     this.counterIndex$.subscribe(res => {
-      //这里直接返回了拼接之后的 string  
+      //这里直接返回了拼接之后的 string
       // console.log('counterIndex$ 拼接方法返回的结果:', res);
     })
   }
@@ -70,7 +70,7 @@ export class CounterComponent implements OnInit {
     this.store$.pipe(select(getInitState)).subscribe(data => {
   // 现在这里的 data 数据格式已经发生了改变，他包含了所有在store中的 信息；
       console.log('countssssss:', data);
-  // 这样 也可以拿到 num 
+  // 这样 也可以拿到 num
       // this.num = data[this.cache].counters.count;;
     });
   }
