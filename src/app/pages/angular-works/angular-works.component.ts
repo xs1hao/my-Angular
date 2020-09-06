@@ -17,7 +17,8 @@ export class AngularWorksComponent implements OnInit {
 
   ngOnInit(): void {
     this.options = [
-      'DragDropModule'
+      'DragDropModule',
+      'CustomModel'
     ]
   }
 

@@ -13,6 +13,8 @@ import { AngularWorksComponent } from './pages/angular-works/angular-works.compo
 import { pathToFileURL } from 'url';
 import { DragDropComponent } from './pages/angular-works/drag-drop/drag-drop.component';
 import { FunctionComponent } from './pages/angular-api/function/function.component';
+import { CustomModelComponent } from './pages/angular-works/custom-model/custom-model.component';
+import { NgIfComponent } from './pages/angular-api/ng-if/ng-if.component';
 
 const routes: Routes = [
   {
@@ -52,14 +54,16 @@ const routes: Routes = [
             {path: 'child', component: ChildRouterComponent}
           ]
         },
-        {path: 'function', component: FunctionComponent}
+        {path: 'function', component: FunctionComponent},
+        {path: 'ngIf', component: NgIfComponent}
       ]
   },
   {
     path: 'angular-works',//angular案例
     component: AngularWorksComponent,
     children: [
-      {path: 'DragDropModule', component: DragDropComponent}
+      {path: 'DragDropModule', component: DragDropComponent},
+      {path: 'CustomModel', component: CustomModelComponent}
     ]
   },
   {

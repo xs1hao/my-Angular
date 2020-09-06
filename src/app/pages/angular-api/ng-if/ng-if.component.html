@@ -1,0 +1,27 @@
+
+<p>
+  NgIf 指令作用
+  ngIf 指令用于根据表达式的值，在指定位置渲染 then 或 else 模板的内容。
+  then 模板除非绑定到不同的值，否则默认是 ngIf 指令关联的内联模板。
+  else 模板除非绑定对应的值，否则默认是 null。
+</p>
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+<br>
+<br>
+<br>
+<button (click)="switchPrimary()">Switch Primary</button>
+    show = {{show}}
+<br>
+<!-- 以下div就相当于一个站位 dom -->
+<div *ngIf="show; then thenBlock; else elseBlock">this is ignored</div>
+<ng-template #primaryBlock>主要的 text to show</ng-template>
+<ng-template #secondaryBlock>次要 text to show</ng-template>
+<ng-template #elseBlock>交替 text while primary text is hidden</ng-template>
+
+
+<!-- 以下用法可替换日常代码的写法 -->
+<button (click)="toggle()">Toggle</button>
+<div *ngIf="toggleBtn; else elseBlocks">hello yesterday</div>
+<ng-template #elseBlocks>
+  <div>hello tomorrow</div>
+</ng-template>

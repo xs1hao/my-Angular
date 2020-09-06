@@ -28,7 +28,8 @@ export class AngularAttributeComponent implements OnInit {
       'Router',
       'innerHtml',
       'elementRef',
-      'function'
+      'function',
+      'ngIf'
     ]
     // console.log('this.router:',this.router);
     this.routerChange = this.router.events

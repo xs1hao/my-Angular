@@ -14,6 +14,7 @@ import { NzDropDownModule } from 'ng-zorro-antd';
 import { Acomponent } from './ng-component-outlet/a.component/a';
 import { Bcomponent } from './ng-component-outlet/b.component/b';
 import { FunctionComponent } from './function/function.component';
+import { NgIfComponent } from './ng-if/ng-if.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FunctionComponent } from './function/function.component';
     // 如果要使用zorro 就要在module里面引入
     Acomponent,
     Bcomponent,
-    FunctionComponent
+    FunctionComponent,
+    NgIfComponent
   ],
   imports: [
     CommonModule,

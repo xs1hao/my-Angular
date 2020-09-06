@@ -1,0 +1,24 @@
+<p>自定义鼠标右击事件</p>
+<ul nz-menu [style.width]="300">
+    <li nz-menu-item (contextmenu)="contextMenu($event, contextTemplate)">中国</li>
+    <li nz-menu-item (contextmenu)="contextMenu($event, contextTemplate)">美国</li>
+    <li nz-menu-item (contextmenu)="contextMenu($event, contextTemplate)">英国</li>
+</ul>
+
+<ng-template #contextTemplate>
+  <ul nz-menu
+      nzInDropDown
+      nzSelectable
+      (nzClick)="close()">
+    <li nz-menu-item
+        (click)="openRenameListModal()">
+      <i class="anticon anticon-edit anticon-right-margin"></i>
+      <span>重命名</span>
+    </li>
+    <li nz-menu-item
+        (click)="delete()">
+      <i class="anticon anticon-delete anticon-right-margin danger"></i>
+      <span class="danger">删除列表</span>
+    </li>
+  </ul>
+</ng-template>
