@@ -6,12 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit {
-
+  dates;
   constructor() {
    }
 
   ngOnInit(): void {
 
+    this.dates = new Date();
   }
 
 

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RxjsComponent } from './rxjs.component';
 import { RxjsRoutingModule } from './rxjs-routing.module';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -9,7 +10,8 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
     ],
     imports: [
         RxjsRoutingModule,
-        NgZorroAntdModule
+        NgZorroAntdModule,
+        SharedModule
     ],
     exports: [NgZorroAntdModule]
 })

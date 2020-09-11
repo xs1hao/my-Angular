@@ -11,6 +11,7 @@ import { ClickoutsideDirective } from './core/directives/clickoutside.directive'
 import { EventEmitService } from './core/eventEmit/eventEmit.service';
 import { SelectComponent } from './components/select/select.component';
 import { HtmlPipe } from './core/pipes/html-piple';
+import { DatePipesPipe } from './core/pipes/date-pipe.pipe';
 // import { OrderByPipe } from './core/pipes/order-by.pipe';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HtmlPipe } from './core/pipes/html-piple';
         ClickoutsideDirective,
         SelectComponent,
         HtmlPipe,
+        DatePipesPipe,
         // OrderByPipe
     ],
     imports:[
@@ -40,6 +42,7 @@ import { HtmlPipe } from './core/pipes/html-piple';
         CodeToggleComponent,
         ClickoutsideDirective,
         HtmlPipe,
+        DatePipesPipe,
         // OrderByPipe
     ],
     providers: [

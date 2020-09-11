@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,6 +56,7 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     )
   ],
   providers: [
+      DatePipe,
     { provide: NZ_I18N, useValue: zh_CN },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: RequestCache, useClass: RequestCacheWithMap },//拦截器

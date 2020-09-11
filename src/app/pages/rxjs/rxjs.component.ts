@@ -9,10 +9,12 @@ import * as _ from 'lodash';
 })
 export class RxjsComponent implements OnInit {
   oButton;
-  constructor() {}
+  dates: Date;
+  constructor(
+  ) {}
   ngOnInit(): void {
 
-    // 操作符号 from filter do of 
+    // 操作符号 from filter do of
 
     // // 发出 (1,2,3,4,5)
     // const source = from([1, 2, 3, 4, 5]);
