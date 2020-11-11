@@ -15,6 +15,7 @@ import { Acomponent } from './ng-component-outlet/a.component/a';
 import { Bcomponent } from './ng-component-outlet/b.component/b';
 import { FunctionComponent } from './function/function.component';
 import { NgIfComponent } from './ng-if/ng-if.component';
+import { BrotherRouterComponent } from './router/brother-router/brother-router.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { NgIfComponent } from './ng-if/ng-if.component';
     Acomponent,
     Bcomponent,
     FunctionComponent,
-    NgIfComponent
+    NgIfComponent,
+    BrotherRouterComponent
   ],
   imports: [
     CommonModule,

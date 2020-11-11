@@ -56,7 +56,6 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     )
   ],
   providers: [
-      DatePipe,
     { provide: NZ_I18N, useValue: zh_CN },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     { provide: RequestCache, useClass: RequestCacheWithMap },//拦截器

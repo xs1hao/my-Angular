@@ -1,5 +1,5 @@
-import { NgModule  } from "@angular/core";
-import { CommonModule } from '@angular/common';
+import { NgModule, Optional, SkipSelf  } from "@angular/core";
+import { CommonModule, DatePipe } from '@angular/common';
 import { NgZorroAntdModule, NzSelectModule } from 'ng-zorro-antd';
 import { FormsModule } from '@angular/forms';
 import { ZorroComponent } from './components/zorro/carousle/zorro.component';
@@ -46,7 +46,18 @@ import { DatePipesPipe } from './core/pipes/date-pipe.pipe';
         // OrderByPipe
     ],
     providers: [
-        EventEmitService
+        EventEmitService,
+        DatePipe, // 官方依赖，
     ]
 })
-export class SharedModule{}
+export class SharedModule{
+  constructor (@Optional() @SkipSelf() parentModule?: SharedModule) {
+    // 检测模块调用；
+    
+    // if (parentModule) {
+    //   throw new Error(
+    //     'SharedModule is already loaded. Import it in the AppModule only， 傻逼~ ');
+    // }
+  }
+
+}
