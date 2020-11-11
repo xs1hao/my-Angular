@@ -16,6 +16,7 @@ import { FunctionComponent } from './pages/angular-api/function/function.compone
 import { CustomModelComponent } from './pages/angular-works/custom-model/custom-model.component';
 import { NgIfComponent } from './pages/angular-api/ng-if/ng-if.component';
 import { BrotherRouterComponent } from './pages/angular-api/router/brother-router/brother-router.component';
+import { RefreshViewComponent } from './pages/angular-api/refresh-view/refresh-view.component';
 
 const routes: Routes = [
   {
@@ -57,7 +58,8 @@ const routes: Routes = [
           ]
         },
         {path: 'function', component: FunctionComponent},
-        {path: 'ngIf', component: NgIfComponent}
+        {path: 'ngIf', component: NgIfComponent},
+        {path: 'refreshView', component: RefreshViewComponent},
       ]
   },
   {

@@ -53,7 +53,7 @@ import { DatePipesPipe } from './core/pipes/date-pipe.pipe';
 export class SharedModule{
   constructor (@Optional() @SkipSelf() parentModule?: SharedModule) {
     // 检测模块调用；
-    
+
     // if (parentModule) {
     //   throw new Error(
     //     'SharedModule is already loaded. Import it in the AppModule only， 傻逼~ ');

@@ -16,6 +16,7 @@ import { Bcomponent } from './ng-component-outlet/b.component/b';
 import { FunctionComponent } from './function/function.component';
 import { NgIfComponent } from './ng-if/ng-if.component';
 import { BrotherRouterComponent } from './router/brother-router/brother-router.component';
+import { RefreshViewComponent } from './refresh-view/refresh-view.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BrotherRouterComponent } from './router/brother-router/brother-router.c
     Bcomponent,
     FunctionComponent,
     NgIfComponent,
-    BrotherRouterComponent
+    BrotherRouterComponent,
+    RefreshViewComponent
   ],
   imports: [
     CommonModule,
