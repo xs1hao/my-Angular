@@ -10,7 +10,6 @@ import { ElementRefComponent } from './pages/angular-api/element-ref/element-ref
 import { ChildRouterComponent } from './pages/angular-api/router/child-router/child-router.component';
 import { RouterComponent } from './pages/angular-api/router/router.component';
 import { AngularWorksComponent } from './pages/angular-works/angular-works.component';
-import { pathToFileURL } from 'url';
 import { DragDropComponent } from './pages/angular-works/drag-drop/drag-drop.component';
 import { FunctionComponent } from './pages/angular-api/function/function.component';
 import { CustomModelComponent } from './pages/angular-works/custom-model/custom-model.component';
@@ -42,6 +41,14 @@ const routes: Routes = [
       { path: 'basic_test/:idS', component: TestComponent}
     ]
     // loadChildren: () => import('./basic/basic.module').then(mod => mod.BasicPracticeModule)
+  },
+  {
+    path: 'typesript',
+    loadChildren: () => import('./pages/typescript/typescript.module').then(mod => mod.TypescriptModule)
+  },
+  {
+    path: 'es6',
+    loadChildren: () => import('./pages/es6/es6.module').then(mod => mod.Es6Module)
   },
   {
     path: 'angular-attr',//angular API

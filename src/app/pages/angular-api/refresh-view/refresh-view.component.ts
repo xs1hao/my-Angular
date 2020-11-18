@@ -9,7 +9,7 @@ import { DataService } from '../../basic/service/data.service';
 })
 export class RefreshViewComponent implements OnInit {
 
-  dataList = [];
+  dataList:Array<any> = [];
   test = '德玛西亚';
   constructor(
     private dataService: DataService,

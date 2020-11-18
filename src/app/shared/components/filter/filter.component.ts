@@ -33,7 +33,7 @@ export class FilterComponent implements OnInit {
   constructor(
     private filterSelectors: FilterSelectors,
     private store$: Store<object>,
-  ) { 
+  ) {
     this.listShow$ = this.filterSelectors.filterListShow$;
     console.log('子组件中：',this.listShow$);
    }
@@ -64,5 +64,5 @@ export class FilterComponent implements OnInit {
   onClickOutSide() {
     this.shutFilterList.emit();
   }
- 
+
 }

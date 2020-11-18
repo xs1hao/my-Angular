@@ -5,6 +5,7 @@
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
+    // "noImplicitAny": true, // 用了这个就报错了~ 类型检查；参数必须有类型申明；
     "downlevelIteration": true,
     "experimentalDecorators": true,
     // "module": "system", // 这个东西放开会生成几个奇怪的 js 文件，5.js,6.js,7.js

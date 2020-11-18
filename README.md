@@ -52,3 +52,8 @@ https://www.cnblogs.com/cczlovexw/p/11527708.html#autoid-0-0-0
 
 #### Angular中很多在angularJs中使用的方法都Angular都不提供了
 安装使用第三方插件  ngx-pipe-function；ngx-order-pipe；ngx-filter-pipe
+
+#### 在node环境下运行ts文件
+ts-node hello.ts
+#### 编译ts文件
+tsc hello.ts
