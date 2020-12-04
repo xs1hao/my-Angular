@@ -73,7 +73,9 @@ export class DataService {
 
     handleData() {
         this.httpGetHeroes().subscribe(
-            res => console.log('res:', res)
+            res => {
+              // console.log('res:', res)
+            }
             //这里能获取到在 in-memory-data.service.ts 中的数据
         )
     }

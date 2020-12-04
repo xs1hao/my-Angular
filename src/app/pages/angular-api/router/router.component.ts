@@ -10,13 +10,14 @@ export class RouterComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private activeR: ActivatedRoute
+    private activeRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.changeRouter();
+    // this.changeRouter();
   }
 
+  // 跳转至子组件
   changeRouter() {
     //跳转至子路由；
     // 在参数中使用了 ‘/’ 会回到根路由，在当前项目里，会跳到 这个模块 ‘CounterModule’ 对应的路由；
@@ -25,7 +26,7 @@ export class RouterComponent implements OnInit {
 
     // 跳转到了当前路由下的子子路由 child 或者 brother
 
-    this.router.navigate(['child'],{relativeTo: this.activeR, queryParams: { id: 'shiqiang' }});
+    this.router.navigate(['child'],{relativeTo: this.activeRoute, queryParams: { id: 'shiqiang' }});
     // this.router.navigate(['brother'],{relativeTo: this.activeR, queryParams: { id: 'shiqiang' }});
   }
 

@@ -19,7 +19,7 @@ export class RefreshViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
-    this.testDefault();
+    // this.testDefault();
   }
 
    // 使用了rxjs的方式，通过服务获取数据；
@@ -29,7 +29,18 @@ export class RefreshViewComponent implements OnInit {
     .subscribe(res => {
       console.log('res:',res);
 
-      // this.dataList = res;
+
+      /**
+      *
+      * 其中：
+      * markForCheck()：使用于子组件，将该子组件到根组件之间的路径标记起来，通知angular检测器下次变化检测时一定检查此路径上的组件;
+      * detach()：将组件的检测器从检测器数中脱离，不再受检测机制的控制，除非重新attach上;
+      * reattach()：把脱离的检测器重新链接到检测器树上;
+      * detectChanges():手动发起该组件到各个子组件的变更检测;
+      *
+      */
+
+      this.dataList = res;
       // this.ref.markForCheck();	// 他是在ChangeDetectionStrategy.OnPush 条件下使用的；就是在拿到数据后，执行这两行代码，这是关键
       // this.ref.detectChanges();
 
@@ -37,8 +48,8 @@ export class RefreshViewComponent implements OnInit {
       // this.zone.run(() => {
         // 要更新视图的代码
         // this.dataList = res;
-        const arr = new Array();
-        this.dataList = arr.concat(res);
+        // const arr = new Array();
+        // this.dataList = arr.concat(res);
       //  })
     });
   }

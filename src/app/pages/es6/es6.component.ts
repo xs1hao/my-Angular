@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Es6Component implements OnInit {
 
+  conf: any;
   constructor() { }
 
   ngOnInit(): void {
+    this.conf = this.configCache;
+    const key = {name: 'shiqiang'};
+    this.conf.setCache(key,'shiqiang');
   }
 
   // 利用闭包事件缓存 es6 版本
