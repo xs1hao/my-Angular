@@ -1,5 +1,9 @@
 <p>
 数据更新但页面不刷新
+<br>
+使用了 ChangeDetectionStrategy.OnPush 变更检测策略，在当前组件中 发生的 subscribe 订阅事件 不会马上更新视图。
+<br>
+可以配合 this.ref.detectChanges();  手动执行变更检测；
 </p>
 <span>
   {{test}}

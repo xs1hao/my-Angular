@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs/Rx';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs/Rx';
 import * as _ from 'lodash';
 import { RxjsService } from './rxjs.service';
-import { User } from './rxjs.interface';
+import { SearchResult, User } from './rxjs.interface';
+import { debounceTime, distinctUntilChanged, filter, map, merge, mergeAll, switchMap } from 'rxjs/operators';
+import { forkJoin, of } from 'rxjs';
 
 @Component({
   selector: 'app-rxjs',
@@ -14,8 +16,15 @@ export class RxjsComponent implements OnInit {
   oButton;
   dates: Date;
   users:Array<User> = [];
+  searchUsers:Array<User> = [];
   users$ = new BehaviorSubject(null);
   currentUser:User;
+
+  validSearch$: Observable<any>;
+  emptySearch$: Observable<any>;
+  onSearchUser$ = new Subject<KeyboardEvent>();
+  subscription: Subscription;
+
   constructor(
     private service: RxjsService,
     private ref:  ChangeDetectorRef
@@ -23,7 +32,7 @@ export class RxjsComponent implements OnInit {
   ngOnInit(): void {
 
     this.service.requestUsers().subscribe(data => {
-      this.users = data;
+      this.users = data.slice(0,5);
       this.ref.detectChanges();
     })
 
@@ -31,6 +40,32 @@ export class RxjsComponent implements OnInit {
       this.currentUser = res;
     })
 
+    this.validSearch$ = this.onSearchUser$
+            .pipe(
+                debounceTime(1000),
+                map(event => (<HTMLInputElement>event.target).value),
+                distinctUntilChanged(),
+                filter(input => input !== ""),
+                switchMap(data => this.service.searchUser(data))
+            )
+
+        this.emptySearch$ = this.onSearchUser$.pipe(
+            debounceTime(1000),
+            map(event => (<HTMLInputElement>event.target).value),
+            filter(input => input === ""),
+            switchMap(data => of([]))
+        )
+
+        this.subscription = this.validSearch$.merge(this.emptySearch$)
+            .subscribe(resp => {
+                if (resp && resp.items && resp.items.length) {
+                    let result = resp as SearchResult;
+                    this.searchUsers = result.items.slice(0,3);
+                } else {
+                    this.searchUsers = [];
+                }
+                this.ref.detectChanges();
+            })
 
   }
 

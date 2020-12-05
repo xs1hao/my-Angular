@@ -18,3 +18,10 @@ export interface User {
   type: string,
   site_admin: boolean
 }
+
+
+export interface SearchResult {
+  total_count: number,
+  incomplete_results: boolean,
+  items: Array<User>
+}

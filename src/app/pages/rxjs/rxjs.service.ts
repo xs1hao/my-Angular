@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { User } from './rxjs.interface';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,4 +23,17 @@ export class RxjsService {
             })
         )
   }
+
+  // 模拟调用github 查询user接口
+  searchUser(val: any) {
+    return this.http.get("https://api.github.com/search/users?q=" + val)
+        .pipe(
+            map(response => response),
+            catchError((error) => {
+                console.log("something went wrong, " + error);
+                return of([]);
+            })
+        )
+}
+
 }

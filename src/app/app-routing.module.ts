@@ -16,6 +16,7 @@ import { CustomModelComponent } from './pages/angular-works/custom-model/custom-
 import { NgIfComponent } from './pages/angular-api/ng-if/ng-if.component';
 import { BrotherRouterComponent } from './pages/angular-api/router/brother-router/brother-router.component';
 import { RefreshViewComponent } from './pages/angular-api/refresh-view/refresh-view.component';
+import { SubjectdiffComponent } from './pages/rxjs/subjectdiff/subjectdiff.component';
 
 const routes: Routes = [
   {
@@ -28,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: 'rxjs',
-    loadChildren: () => import('./pages/rxjs/rxjs.module').then(mod => mod.RxjsModule)
+    loadChildren: () => import('./pages/rxjs/rxjs.module').then(mod =>mod.RxjsModule)
   },
   {
     path: 'counter',

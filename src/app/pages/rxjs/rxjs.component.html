@@ -1,16 +1,17 @@
 <div>
     <h3>
-        该组件主要是：&nbsp;模块Rxjs的练习
-        <br>
-        在组件中使用 lodash （测试有效）
+        模块Rxjs的练习
     </h3>
+    <button [routerLink]="'./subject'">goChild</button>
     <div class="content">
         <div class="input_con" style="margin-top: 20px;">
             <input type="text" />
         </div>
         <button (click)="getUser()">点我</button>
-        {{this.currentUser?.login}}
+        this.currentUser: {{this.currentUser?.login}}
     </div>
+    <!-- 模拟接口查询 -->
+    只展示5条
     <ul>
       <li *ngFor="let item of users">
         <span class="user-span" (click)="users$.next(item)">
@@ -18,4 +19,22 @@
         </span>
       </li>
     </ul>
+    <!-- 模拟接口搜索 -->
+    <div class="margin-large">
+      <div class="container-flex margin-small">
+          <div class="margin-right-small"><strong> Search Github user(只展示3条): </strong></div>
+          <input type="text" (keyup)="onSearchUser$.next($event)" />
+      </div>
+      <div *ngFor="let user of searchUsers" style="margin: 20px">
+          <div class="container-flex">
+              <div style="font: 0.9em"><strong>User Name: {{user.login}}</strong></div>
+              <div style="font:0.9em"><strong>ID: {{user.id}}</strong></div>
+              <div style="font:0.9em"><strong>GitHub URL: {{user.url}}</strong></div>
+          </div>
+      </div>
+      <div *ngIf="!searchUsers.length" class="margin-small">
+          <label style="color:red">no search result!</label>
+      </div>
+  </div>
 </div>
+<router-outlet></router-outlet>
