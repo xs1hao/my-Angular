@@ -26,7 +26,8 @@ export class RouterComponent implements OnInit {
 
     // 跳转到了当前路由下的子子路由 child 或者 brother
 
-    this.router.navigate(['child'],{relativeTo: this.activeRoute, queryParams: { id: 'shiqiang' }});
+    this.router.navigate(['child/23'],{relativeTo: this.activeRoute, queryParams: { id: 'shiqiang' }});
+
     // this.router.navigate(['brother'],{relativeTo: this.activeR, queryParams: { id: 'shiqiang' }});
   }
 

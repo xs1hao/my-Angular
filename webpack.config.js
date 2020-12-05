@@ -13,7 +13,7 @@ module.exports = {
     ],
     output: {
         // filename: "[name].js" ,
-        //根据entry 的key 生成对应文件的名称 如上面注释  会生成 1.js 2.js
+        //根据entry 的 key 生成对应文件的名称 如上面注释  会生成 1.js 2.js
         // 生成的文件到 当前目录下 文件下
         path: path.resolve(__dirname, "./dist/my-app"),// 输出路径
         filename: "index.js" // 输出文件名称

@@ -16,7 +16,7 @@ import { CustomModelComponent } from './pages/angular-works/custom-model/custom-
 import { NgIfComponent } from './pages/angular-api/ng-if/ng-if.component';
 import { BrotherRouterComponent } from './pages/angular-api/router/brother-router/brother-router.component';
 import { RefreshViewComponent } from './pages/angular-api/refresh-view/refresh-view.component';
-import { SubjectdiffComponent } from './pages/rxjs/subjectdiff/subjectdiff.component';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   {
@@ -61,7 +61,7 @@ const routes: Routes = [
         {path: 'elementRef', component: ElementRefComponent},
         {path: 'Router', component: RouterComponent,
           children : [
-            {path: 'child', component: ChildRouterComponent},
+            {path: 'child/:age', component: ChildRouterComponent},
             {path: 'brother', component: BrotherRouterComponent}
           ]
         },
@@ -82,12 +82,15 @@ const routes: Routes = [
     path: 'workdemo',
     loadChildren: () => import('./pages/workdemo/workdemo.module').then(mod => mod.WorkdemoModule)
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' }
 ];
 // forRoot() 方法会提供路由所需的服务提供商和指令，还会基于浏览器的当前 URL 执行首次导航。
 @NgModule({
-  imports: [RouterModule.forRoot(routes)], // forRoot() 表示这是一个根路由模块
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes,{ useHash: false })], // forRoot() 表示这是一个根路由模块
+  exports: [RouterModule],
+  providers: [
+    {provide: LocationStrategy, useClass: PathLocationStrategy}
+  ]
 })
 export class AppRoutingModule { }

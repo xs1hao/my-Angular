@@ -26,7 +26,13 @@ export class ChildRouterComponent implements OnInit {
     const url = this.location.path();
 
     // 返回上一级，实现方式一
+    // this.activeR.snapshot.params.age = '521';  // 这样会直接报错，路由参数不能直接被指定；
     this.location.back(); // 在所属平台（如浏览器）的历史堆栈中后退一步。
+
+    // 实现路由刷新页面不刷新
+    history.pushState(
+      null,'',`shiqiang-9005`
+    )
 
     // 返回上一级，实现方式二
     // this.router.navigate(['../'],{relativeTo: this.activeR, queryParams: { id: 'demaxiya' }});
