@@ -24,7 +24,7 @@ import { AngularAttributeModule } from './pages/angular-api/angular-attribute.mo
 import { AngularWorksModule } from './pages/angular-works/angular-works.module';
 import { TypescriptModule } from './pages/typescript/typescript.module';
 import { Es6Module } from './pages/es6/es6.module';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 registerLocaleData(zh);
 

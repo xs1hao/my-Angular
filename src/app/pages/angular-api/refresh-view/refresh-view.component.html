@@ -10,7 +10,9 @@
 </span>
 
 <ul>
-  <li *ngFor="let item of dataList">
-    {{item.name}}
-  </li>
+  <ng-container *ngFor="let item of dataList">
+    <li (click)="toggleItem(item)">
+      {{item.name}}
+    </li>
+  </ng-container>
 </ul>

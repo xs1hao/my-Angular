@@ -5,12 +5,13 @@ import { DataService } from '../../basic/service/data.service';
   selector: 'app-refresh-view',
   templateUrl: './refresh-view.component.html',
   styleUrls: ['./refresh-view.component.less'],
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RefreshViewComponent implements OnInit {
 
   dataList: Array<any> = [];
   test = '德玛西亚';
+  currentUser = {};
   constructor(
     private dataService: DataService,
     private ref: ChangeDetectorRef,
@@ -27,7 +28,7 @@ export class RefreshViewComponent implements OnInit {
     // this.dataService.getData()
     this.dataService.httpGetHeroes()// 使用虚拟服务器获取数据
       .subscribe(res => {
-        console.log('res:', res);
+        console.log('res in RefreshViewComponent:', res);
 
 
         /**
@@ -42,16 +43,20 @@ export class RefreshViewComponent implements OnInit {
 
         this.dataList = res;
         // this.ref.markForCheck();	// 他是在ChangeDetectionStrategy.OnPush 条件下使用的；就是在拿到数据后，执行这两行代码，这是关键
-        // this.ref.detectChanges();
+        this.ref.detectChanges();
 
         // 另一种强制刷新的方式
         // this.zone.run(() => {
-        // 要更新视图的代码
+        // // 要更新视图的代码
         // this.dataList = res;
-        // const arr = new Array();
-        // this.dataList = arr.concat(res);
+        // // const arr = new Array();
+        // // this.dataList = arr.concat(res);
         //  })
       });
+  }
+
+  toggleItem(data) {
+    this.currentUser = data;
   }
 
 }
