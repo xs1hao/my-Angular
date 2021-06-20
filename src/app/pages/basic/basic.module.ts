@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BasicAngularComponent } from './basic.component';
 import { BasicPracticeRoutingModule } from './basic-routing.module';
-import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SvgComponent } from './svg/svg.component';
@@ -25,7 +24,6 @@ import { NgxPipeFunctionModule } from 'ngx-pipe-function';
         BasicPracticeRoutingModule,
         SharedModule,
         OrderModule,
-        NgZorroAntdModule,
         NgxPipeFunctionModule
     ],
     exports: [

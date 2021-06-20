@@ -4,7 +4,11 @@ import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/commo
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { NZ_I18N, zh_CN } from 'ng-zorro-antd/i18n';
+import { NzCommentModule } from 'ng-zorro-antd/comment';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzSliderModule } from 'ng-zorro-antd/slider';
+
 // http相关
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
@@ -37,7 +41,6 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgZorroAntdModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
@@ -48,6 +51,9 @@ export const metaReducers: MetaReducer<any>[] = environment.production ? []: [];
     AngularWorksModule,
     TypescriptModule,
     Es6Module,
+    NzCommentModule,
+    NzLayoutModule,
+    NzSliderModule,
     StoreModule.forRoot({}, { metaReducers }),
     // 该应用代码并不需要数据服务器。 它基于 Angular in-memory-web-api 库，该库会替换 HttpClient 模块中的 HttpBackend。用于替换的这个服务会模拟 REST 风格的后端的行为。到 AppModule 的 imports 中查看这个库是如何配置的。
     HttpClientInMemoryWebApiModule.forRoot(//forRoot() 配置方法接收一个 InMemoryDataService 类来初始化内存数据库。

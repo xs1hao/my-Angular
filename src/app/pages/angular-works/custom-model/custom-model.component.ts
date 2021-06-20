@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NzDropdownContextComponent, NzDropdownService } from 'ng-zorro-antd';
+import { NzContextMenuService, NzDropdownMenuComponent } from 'ng-zorro-antd/dropdown'
 @Component({
   selector: 'app-custom-model',
   templateUrl: './custom-model.component.html',
@@ -9,29 +9,29 @@ import { NzDropdownContextComponent, NzDropdownService } from 'ng-zorro-antd';
 export class CustomModelComponent implements OnInit {
 
   constructor(
-    private dropdownService:NzDropdownService
+    private nzContextMenuService: NzContextMenuService
   ) {
 
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  dropdown:NzDropdownContextComponent;
+  dropdown: any;
 
-  contextMenu($event:MouseEvent,template:TemplateRef<void>){
-    this.dropdown=this.dropdownService.create($event,template);
+  contextMenu($event: MouseEvent, menu: NzDropdownMenuComponent) {
+    this.nzContextMenuService.create($event, menu);
   }
 
-  openRenameListModal(){
+  openRenameListModal() {
     console.log("打开了重命名modal");
   }
 
-  close(){
-    this.dropdown.close();
+  close() {
+    this.nzContextMenuService.close();
   }
 
-  delete(){
+  delete() {
     console.log("删除了一个元素");
   }
 

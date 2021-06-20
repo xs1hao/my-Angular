@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
 import { CustomModelComponent } from './custom-model/custom-model.component';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { CustomModelComponent } from './custom-model/custom-model.component';
     RouterModule,
     SharedModule,
     DragDropModule,
+    NzDropDownModule
   ]
 })
 export class AngularWorksModule { }

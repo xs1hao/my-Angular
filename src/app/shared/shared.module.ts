@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf  } from "@angular/core";
 import { CommonModule, DatePipe } from '@angular/common';
-import { NgZorroAntdModule, NzSelectModule } from 'ng-zorro-antd';
+import { NzSelectModule } from 'ng-zorro-antd/select'
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { FormsModule } from '@angular/forms';
 import { ZorroComponent } from './components/zorro/carousle/zorro.component';
 import { ButtonComponent } from './components/zorro/button/button.component';
@@ -31,7 +32,7 @@ import { DatePipesPipe } from './core/pipes/date-pipe.pipe';
         CommonModule,
         FormsModule,
         NzSelectModule,
-        NgZorroAntdModule
+        NzCarouselModule
     ],
     exports:[
         ZorroComponent,

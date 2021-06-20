@@ -10,7 +10,7 @@ import { RouterComponent } from './router/router.component';
 import { ChildRouterComponent } from './router/child-router/child-router.component';
 import { InnerHtmlComponent } from './inner-html/inner-html.component';
 import { ElementRefComponent } from './element-ref/element-ref.component';
-import { NzDropDownModule } from 'ng-zorro-antd';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { Acomponent } from './ng-component-outlet/a.component/a';
 import { Bcomponent } from './ng-component-outlet/b.component/b';
 import { FunctionComponent } from './function/function.component';
