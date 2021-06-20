@@ -57,3 +57,11 @@ https://www.cnblogs.com/cczlovexw/p/11527708.html#autoid-0-0-0
 ts-node hello.ts
 #### 编译ts文件
 tsc hello.ts
+#### 升级 angular即 zorro的 版本值最新
+>> 2021年6月20日14:10:13
+>>>angular --- 11.2.4
+>>>zorro --- 11.0.0
+
+#### 在angular框架中使用 webpack
+[在angular中使用webopack](https://blog.csdn.net/a1056244734/article/details/112919960)
+

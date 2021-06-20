@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
 
+declare const VERSION: string;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'Version: ' + VERSION;
   current_time: string = ''
+
   constructor() {
+
     this.getTime();
+    console.log(this.title);
+
   }
   id = 19047;
   private getTime = () => {
