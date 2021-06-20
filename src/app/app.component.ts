@@ -15,7 +15,6 @@ export class AppComponent {
 
     this.getTime();
     console.log(this.title);
-
   }
   id = 19047;
   private getTime = () => {
