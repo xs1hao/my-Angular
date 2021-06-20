@@ -18,6 +18,7 @@ export class BasicAngularComponent implements OnInit {
   isSpecial:boolean;
   mockData;
   checkoutForm;
+  configClass = 'configClass'
 
   basicObj;
   inputValues:string = '';
