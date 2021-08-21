@@ -71,8 +71,6 @@ export class BootstrapTesstComponent implements OnInit, AfterViewInit {
       {id: 31, name: '小打啊量', age: 11, children: []},
     ]; // 不会触发
     this.dataToChild = cloneDeep(this.dataToChild);// 这样就会触发
-    console.log('this.dataToChild:',this.dataToChild);
-
 
   /***
    * 使用对象测试

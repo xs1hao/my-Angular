@@ -15,8 +15,11 @@ export class HomeComponent implements OnInit {
 
     this.dates = new Date();
 
-    // 利用fetch 请求 成功获取了网易云音乐的轮播图；
-    fetch('./api/banner?type=1').then(
+  }
+
+  getData() {
+     // 利用fetch 请求 成功获取了网易云音乐的轮播图；
+     fetch('./api/banner?type=1').then(
       response => {
         console.log('联系服务器成功了');
         return response.json()
