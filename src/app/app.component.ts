@@ -13,7 +13,7 @@ export class AppComponent {
 
   constructor() {
 
-    this.getTime();
+    this.getTime(); 
     console.log(this.title);
   }
   id = 19047;
