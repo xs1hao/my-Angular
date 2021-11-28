@@ -8,13 +8,13 @@ declare const VERSION: string;
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'Version: ' + VERSION;
+  // title = 'Version: ' + VERSION;
   current_time: string = ''
 
   constructor() {
 
-    this.getTime(); 
-    console.log(this.title);
+    this.getTime();
+    // console.log(this.title);
   }
   id = 19047;
   private getTime = () => {

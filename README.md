@@ -64,4 +64,5 @@ tsc hello.ts
 
 #### 在angular框架中使用 webpack
 [在angular中使用webopack](https://blog.csdn.net/a1056244734/article/details/112919960)
+不适用webpack启动项目，直接运行命令： npm run startsq
 

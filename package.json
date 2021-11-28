@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "startsq": "ng serve",
     "start": "ng serve --extra-webpack-config webpack.partial.js",
     "build": "ng build --prod --output-hashing none",
     "test": "ng test",

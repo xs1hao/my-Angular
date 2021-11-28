@@ -10,15 +10,15 @@ import { forkJoin, of } from 'rxjs';
   selector: 'app-rxjs',
   templateUrl: './rxjs.component.html',
   styleUrls: ['./rxjs.component.less'],
-  changeDetection:ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RxjsComponent implements OnInit {
   oButton;
   dates: Date;
-  users:Array<User> = [];
-  searchUsers:Array<User> = [];
+  users: Array<User> = [];
+  searchUsers: Array<User> = [];
   users$ = new BehaviorSubject(null);
-  currentUser:User;
+  currentUser: User;
 
   validSearch$: Observable<any>;
   emptySearch$: Observable<any>;
@@ -27,13 +27,13 @@ export class RxjsComponent implements OnInit {
 
   constructor(
     private service: RxjsService,
-    private ref:  ChangeDetectorRef
+    private ref: ChangeDetectorRef
   ) { }
   ngOnInit(): void {
 
     this.service.requestUsers().subscribe(data => {
-      this.users = data.slice(0,5);
-      this.ref.detectChanges();
+      this.users = data.slice(0, 5);
+      this.ref.detectChanges(); // 增加了变更检测；
     })
 
     this.users$.subscribe(res => {
@@ -41,36 +41,36 @@ export class RxjsComponent implements OnInit {
     })
 
     this.validSearch$ = this.onSearchUser$
-            .pipe(
-                debounceTime(1000),
-                map(event => (<HTMLInputElement>event.target).value),
-                distinctUntilChanged(),
-                filter(input => input !== ""),
-                switchMap(data => this.service.searchUser(data))
-            )
+      .pipe(
+        debounceTime(1000),
+        map(event => (<HTMLInputElement>event.target).value),
+        distinctUntilChanged(),
+        filter(input => input !== ""),
+        switchMap(data => this.service.searchUser(data))
+      )
 
-        this.emptySearch$ = this.onSearchUser$.pipe(
-            debounceTime(1000),
-            map(event => (<HTMLInputElement>event.target).value),
-            filter(input => input === ""),
-            switchMap(data => of([]))
-        )
+    this.emptySearch$ = this.onSearchUser$.pipe(
+      debounceTime(1000),
+      map(event => (<HTMLInputElement>event.target).value),
+      filter(input => input === ""),
+      switchMap(data => of([]))
+    )
 
-        this.subscription = this.validSearch$.merge(this.emptySearch$)
-            .subscribe(resp => {
-                if (resp && resp.items && resp.items.length) {
-                    let result = resp as SearchResult;
-                    this.searchUsers = result.items.slice(0,3);
-                } else {
-                    this.searchUsers = [];
-                }
-                this.ref.detectChanges();
-            })
+    this.subscription = this.validSearch$.merge(this.emptySearch$)
+      .subscribe(resp => {
+        if (resp && resp.items && resp.items.length) {
+          let result = resp as SearchResult;
+          this.searchUsers = result.items.slice(0, 3);
+        } else {
+          this.searchUsers = [];
+        }
+        this.ref.detectChanges();
+      })
 
   }
 
-  getUser():User{
-    console.log('this.currentUser:',this.currentUser);
+  getUser(): User {
+    console.log('this.currentUser:', this.currentUser);
     return this.currentUser;
   }
 
